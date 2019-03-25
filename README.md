@@ -9,7 +9,8 @@ Mestrado Computação Móvel 2018/19: Implementação de uma plataforma que perm
 
 ![bda_archit](https://user-images.githubusercontent.com/2634610/54847053-415efd00-4cd5-11e9-93f2-e43b31660adf.png)
 
-## V.0.1.2
+## Versioning
+##### V.0.1.2
 
 * [WebApp](https://ipg-sdm.azurewebsites.net/) - WebApp, display information on map
 * [API documentation](https://ipg-sdm.azurewebsites.net/api-docs) - WebAPI documentation
@@ -21,8 +22,6 @@ Mestrado Computação Móvel 2018/19: Implementação de uma plataforma que perm
 * [leafletjs](https://leafletjs.com/reference-1.4.0.html)
 
 ## Contributing
-
-## Versioning
 
 ## Authors
 
