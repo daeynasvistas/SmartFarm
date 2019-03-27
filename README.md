@@ -23,6 +23,7 @@ Mestrado Computação Móvel 2018/19: Implementação de uma plataforma que perm
 
 ## Contributing
 
+
 ## Authors
 
 ## License
