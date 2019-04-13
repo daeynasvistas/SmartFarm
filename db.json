@@ -1,42 +1,69 @@
+   {  
+  "posts": [
+    { "id": 1, "title": "Post 1" },
+    { "id": 2, "title": "Post 2" },
+    { "id": 3, "title": "Post 3" }
+  ],
+  "comments": [
+    { "id": 1, "body": "some comment", "postId": 1 },
+    { "id": 2, "body": "some comment", "postId": 1 }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "nodes":[
     {
-    "coord": {
-        "lon": -0.13,
-        "lat": 51.51
+        "id": 8,
+        "time": "0001-01-01T00:00:00Z",
+        "air_temp": 23.1,
+        "air_humidity": 28.7,
+        "air_pressure": 1540,
+        "air_CO2": 982,
+        "air_TVOC": 468,
+        "lux": 540,
+        "flame": 10,
+        "soil_humidity": 1540,
+        "sound": 40
     },
-    "weather": [
-        {
-            "id": 300,
-            "main": "Drizzle",
-            "description": "light intensity drizzle",
-            "icon": "09d"
-        }
-    ],
-    "base": "stations",
-    "main": {
-        "temp": 280.32,
-        "pressure": 1012,
-        "humidity": 81,
-        "temp_min": 279.15,
-        "temp_max": 281.15
+    {
+        "id": 8,
+        "time": "0001-01-01T00:00:00Z",
+        "air_temp": 23.1,
+        "air_humidity": 28.7,
+        "air_pressure": 1540,
+        "air_CO2": 982,
+        "air_TVOC": 468,
+        "lux": 540,
+        "flame": 10,
+        "soil_humidity": 1540,
+        "sound": 40
     },
-    "visibility": 10000,
-    "wind": {
-        "speed": 4.1,
-        "deg": 80
+    {
+        "id": 18,
+        "time": "0001-01-01T00:00:00Z",
+        "air_temp": 23.1,
+        "air_humidity": 28.7,
+        "air_pressure": 1540,
+        "air_CO2": 982,
+        "air_TVOC": 468,
+        "lux": 540,
+        "flame": 10,
+        "soil_humidity": 1540,
+        "sound": 40
     },
-    "clouds": {
-        "all": 90
-    },
-    "dt": 1485789600,
-    "sys": {
-        "type": 1,
-        "id": 5091,
-        "message": 0.0103,
-        "country": "GB",
-        "sunrise": 1485762037,
-        "sunset": 1485794875
-    },
-    "id": 2643743,
-    "name": "London",
-    "cod": 200
+    {
+        "id": 18,
+        "time": "0001-01-01T00:00:00Z",
+        "air_temp": 23.1,
+        "air_humidity": 28.7,
+        "air_pressure": 1540,
+        "air_CO2": 982,
+        "air_TVOC": 468,
+        "lux": 540,
+        "flame": 10,
+        "soil_humidity": 1540,
+        "sound": 40
+    }
+]
+  
 }
