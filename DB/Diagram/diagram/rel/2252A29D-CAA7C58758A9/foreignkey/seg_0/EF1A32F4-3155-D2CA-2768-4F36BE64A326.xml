@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="EF1A32F4-3155-D2CA-2768-4F36BE64A326" containerWithKeyObject="9767A194-B216-ECB3-0739-B854E17475F5" localFKIndex="28BB56CA-26CF-433B-9018-35B2D4465631" name="IOT_SENSOR_IOT_PERSON_FK">
+<createdBy>administrator</createdBy>
+<createdTime>2019-04-15 13:35:26 UTC</createdTime>
+<generatorID>45EF53F8-C826-3767-7C9B-C5A937382197</generatorID>
+<ownerDesignName>physical</ownerDesignName>
+<referredTableLongName>IOT_PERSON</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>4D2D08E0-478F-81E0-BE13-B26E5421FF95</referredTableID>
+<keyObject>2FBAC3BC-A2DE-8DA1-4B0C-3546B3D8F1FA</keyObject>
+<referredKeyID>2FBAC3BC-A2DE-8DA1-4B0C-3546B3D8F1FA</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>PERSON_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

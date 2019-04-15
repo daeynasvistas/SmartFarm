@@ -1,0 +1,104 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="269E4B59-E0F6-1957-614F-ED32E134478E" name="IOT_SENSOR_DATA">
+<createdBy>administrator</createdBy>
+<createdTime>2019-04-15 13:35:26 UTC</createdTime>
+<generatorID>76E5946F-71BB-741C-9419-4EE3026D12EE</generatorID>
+<ownerDesignName>physical</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="DATA_ID" id="F9D8239A-D279-8F63-926F-83F7EDE86862">
+<createdBy>administrator</createdBy>
+<createdTime>2019-04-15 13:35:26 UTC</createdTime>
+<generatorID>A875FCA5-D4E9-67A3-9119-3A2EE855CEF2</generatorID>
+<ownerDesignName>physical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IOT_SENSOR_SENSOR_ID" id="D4FAA133-12A9-7CBF-66CB-D21C3A33098B">
+<createdBy>administrator</createdBy>
+<createdTime>2019-04-15 13:35:26 UTC</createdTime>
+<generatorID>4BE86622-D650-B88D-9023-7A056D685BD1</generatorID>
+<ownerDesignName>physical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="99896367-FFCF-D7FA-F3B3-E7CEBDBE96FC" referredColumn="F402A72C-3125-CAB5-E5C7-F2674A6A511B"/>
+</associations>
+</Column>
+<Column name="DATE_OF_VALUE" id="8C8798E1-5461-387D-AD16-C4F1133185E9">
+<createdBy>administrator</createdBy>
+<createdTime>2019-04-15 13:35:26 UTC</createdTime>
+<generatorID>896AC3C2-F4FE-0EAF-C8BB-1A62044FB734</generatorID>
+<ownerDesignName>physical</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VALUE" id="CE89386D-9C76-F302-365D-3E6A5F9FDB0A">
+<createdBy>administrator</createdBy>
+<createdTime>2019-04-15 13:35:26 UTC</createdTime>
+<generatorID>E0EAA3F2-6382-F6E8-9E97-511CD280FE60</generatorID>
+<ownerDesignName>physical</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<dataTypeScale>3</dataTypeScale>
+<ownDataTypeParameters>,6,3</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="POS" id="56C5C586-3EE5-C693-01F9-D35511E9E980">
+<createdBy>administrator</createdBy>
+<createdTime>2019-04-15 13:35:26 UTC</createdTime>
+<generatorID>28DE25AD-82F7-89D6-5183-9F77B2B5F1A8</generatorID>
+<ownerDesignName>physical</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>3</use>
+<structuredType>47E390DE-0671-C4B1-8428-0F45CBEE18F8</structuredType>
+<logicalDatatype>LOGDT038</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8DA3E00B-93A7-971E-38ED-070CFAC835C4" name="IOT_SENSOR_DATA_PK">
+<createdBy>administrator</createdBy>
+<createdTime>2019-04-15 13:35:26 UTC</createdTime>
+<generatorID>99E12645-D371-E095-486B-57128D412745</generatorID>
+<ownerDesignName>physical</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F9D8239A-D279-8F63-926F-83F7EDE86862"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4C326B88-83F0-C52A-8221-AE1A37947BB2" name="SENSOR_DATA_SENSOR_FK">
+<createdBy>administrator</createdBy>
+<createdTime>2019-04-15 13:35:26 UTC</createdTime>
+<generatorID>B881FD13-533C-4918-45E1-6F0B1C581547</generatorID>
+<ownerDesignName>physical</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D4FAA133-12A9-7CBF-66CB-D21C3A33098B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

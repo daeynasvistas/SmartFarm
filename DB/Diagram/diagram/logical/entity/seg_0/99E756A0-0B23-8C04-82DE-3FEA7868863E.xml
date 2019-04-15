@@ -1,0 +1,145 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="99E756A0-0B23-8C04-82DE-3FEA7868863E" name="IOT_SENSOR">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-03-27 17:46:48 UTC</createdTime>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="2252A29D-D72D-1268-3CBB-CAA7C58758A9" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="SENSOR_ID" id="7D5EE004-905A-16AF-302D-5C32990D9E71">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-03-27 18:02:14 UTC</createdTime>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="2252A29D-D72D-1268-3CBB-CAA7C58758A9" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<ownDataTypeParameters>,7,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CODE" id="8059EC30-3644-9F30-4196-0AFEC81022DA">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-03-27 18:09:37 UTC</createdTime>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="2252A29D-D72D-1268-3CBB-CAA7C58758A9" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NAME" id="E251B8BA-C055-0C6C-2407-66167D04C10E">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-03-27 18:05:27 UTC</createdTime>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="2252A29D-D72D-1268-3CBB-CAA7C58758A9" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DESCRIPTION" id="17A9636C-05F6-F25A-2FFA-8A875C54649F">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-03-27 18:07:18 UTC</createdTime>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="2252A29D-D72D-1268-3CBB-CAA7C58758A9" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>80</dataTypeSize>
+<ownDataTypeParameters>80,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DATE_INSTALLED" id="3B240F92-1862-AE2F-6DF2-DA15701410EF">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-03-27 18:08:01 UTC</createdTime>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="2252A29D-D72D-1268-3CBB-CAA7C58758A9" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DATE_TERMINATE" id="44797A85-C3FF-DE33-BD34-6A6284C5E20D">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-03-27 18:08:21 UTC</createdTime>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="2252A29D-D72D-1268-3CBB-CAA7C58758A9" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="SENSOR_TYPE_ID" id="1388F4A9-1543-36FF-D7DE-E69D5806B24E">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-03-27 18:13:21 UTC</createdTime>
+<generatorID>26569734-ABB6-0EBA-F65C-A7CC6920B107</generatorID>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="2252A29D-D72D-1268-3CBB-CAA7C58758A9" value="true"/>
+</engineerTo>
+<referedAttribute>7C46C721-E16C-DFCF-34D3-E4CEAB9C439A</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PERSON_ID" id="75CA020B-1720-DEC0-CF90-1C8FCA2B5E52">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-03-27 18:28:07 UTC</createdTime>
+<generatorID>45EF53F8-C826-3767-7C9B-C5A937382197</generatorID>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="2252A29D-D72D-1268-3CBB-CAA7C58758A9" value="true"/>
+</engineerTo>
+<referedAttribute>5F89DA9A-3AC5-488E-2633-3E89E01DD27D</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="81DCB058-FC65-23B9-77F7-7D6CF48C8011" name="SENSOR PK">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-03-27 18:03:33 UTC</createdTime>
+<ownerDesignName>Logical</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="2252A29D-D72D-1268-3CBB-CAA7C58758A9" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>7D5EE004-905A-16AF-302D-5C32990D9E71</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

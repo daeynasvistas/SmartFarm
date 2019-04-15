@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Sensor_Type" directorySegmentName="seg_0" id="26569734-ABB6-0EBA-F65C-A7CC6920B107">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-03-27 18:13:21 UTC</createdTime>
+<ownerDesignName>Logical</ownerDesignName>
+<engineerTo>
+<item key="2252A29D-D72D-1268-3CBB-CAA7C58758A9" value="true"/>
+</engineerTo>
+<sourcePk>238FFEB4-0A7F-B772-74BD-2EB88D9DAFB0</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>8C3DE127-4B45-20FD-5947-CE1B528BC81B</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>99E756A0-0B23-8C04-82DE-3FEA7868863E</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
