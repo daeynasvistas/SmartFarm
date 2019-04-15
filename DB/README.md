@@ -2,9 +2,9 @@
 
 ### V0.0.2
 
-![Logical](https://user-images.githubusercontent.com/2634610/56147862-ff0da080-5fa0-11e9-81b4-b5f19d1ed969.png)
+![Relational_1](https://user-images.githubusercontent.com/2634610/56147983-4136e200-5fa1-11e9-948c-c34dbb49a90c.png)
 
-![Relational_1](https://user-images.githubusercontent.com/2634610/56147863-ff0da080-5fa0-11e9-8a7c-f38db548f401.png)
+![Logical](https://user-images.githubusercontent.com/2634610/56147984-4136e200-5fa1-11e9-9e86-606eb2059150.png)
 
 
 ### V0.0.1
