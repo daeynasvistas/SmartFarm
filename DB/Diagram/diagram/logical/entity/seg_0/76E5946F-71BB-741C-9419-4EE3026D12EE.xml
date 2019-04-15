@@ -2,7 +2,7 @@
 <Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="76E5946F-71BB-741C-9419-4EE3026D12EE" name="IOT_SENSOR_DATA">
 <createdBy>Administrator</createdBy>
 <createdTime>2019-03-27 18:17:11 UTC</createdTime>
-<ownerDesignName>Logical</ownerDesignName>
+<ownerDesignName>diagram</ownerDesignName>
 <engineerTo>
 <item key="2252A29D-D72D-1268-3CBB-CAA7C58758A9" value="true"/>
 </engineerTo>
@@ -15,10 +15,10 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="DATA_ID" id="A875FCA5-D4E9-67A3-9119-3A2EE855CEF2">
+<Attribute name="ID" id="A875FCA5-D4E9-67A3-9119-3A2EE855CEF2">
 <createdBy>Administrator</createdBy>
 <createdTime>2019-03-27 18:18:12 UTC</createdTime>
-<ownerDesignName>Logical</ownerDesignName>
+<ownerDesignName>diagram</ownerDesignName>
 <engineerTo>
 <item key="2252A29D-D72D-1268-3CBB-CAA7C58758A9" value="true"/>
 </engineerTo>
@@ -32,7 +32,7 @@
 <createdBy>Administrator</createdBy>
 <createdTime>2019-03-27 18:18:43 UTC</createdTime>
 <generatorID>B881FD13-533C-4918-45E1-6F0B1C581547</generatorID>
-<ownerDesignName>Logical</ownerDesignName>
+<ownerDesignName>diagram</ownerDesignName>
 <engineerTo>
 <item key="2252A29D-D72D-1268-3CBB-CAA7C58758A9" value="true"/>
 </engineerTo>
@@ -41,12 +41,12 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>7</dataTypePrecision>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>,7,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="DATE_OF_VALUE" id="896AC3C2-F4FE-0EAF-C8BB-1A62044FB734">
 <createdBy>Administrator</createdBy>
 <createdTime>2019-03-27 18:19:16 UTC</createdTime>
-<ownerDesignName>Logical</ownerDesignName>
+<ownerDesignName>diagram</ownerDesignName>
 <engineerTo>
 <item key="2252A29D-D72D-1268-3CBB-CAA7C58758A9" value="true"/>
 </engineerTo>
@@ -59,7 +59,7 @@
 <Attribute name="VALUE" id="E0EAA3F2-6382-F6E8-9E97-511CD280FE60">
 <createdBy>Administrator</createdBy>
 <createdTime>2019-03-27 18:20:03 UTC</createdTime>
-<ownerDesignName>Logical</ownerDesignName>
+<ownerDesignName>diagram</ownerDesignName>
 <engineerTo>
 <item key="2252A29D-D72D-1268-3CBB-CAA7C58758A9" value="true"/>
 </engineerTo>
@@ -74,7 +74,7 @@
 <Attribute name="POS" id="28DE25AD-82F7-89D6-5183-9F77B2B5F1A8">
 <createdBy>administrator</createdBy>
 <createdTime>2019-04-15 13:00:35 UTC</createdTime>
-<ownerDesignName>Logical</ownerDesignName>
+<ownerDesignName>diagram</ownerDesignName>
 <engineerTo>
 <item key="2252A29D-D72D-1268-3CBB-CAA7C58758A9" value="true"/>
 </engineerTo>
@@ -90,7 +90,7 @@
 <identifier id="99E12645-D371-E095-486B-57128D412745" name="DATA PK">
 <createdBy>Administrator</createdBy>
 <createdTime>2019-03-27 18:18:18 UTC</createdTime>
-<ownerDesignName>Logical</ownerDesignName>
+<ownerDesignName>diagram</ownerDesignName>
 <shouldEngineer>false</shouldEngineer>
 <engineerTo>
 <item key="2252A29D-D72D-1268-3CBB-CAA7C58758A9" value="false"/>

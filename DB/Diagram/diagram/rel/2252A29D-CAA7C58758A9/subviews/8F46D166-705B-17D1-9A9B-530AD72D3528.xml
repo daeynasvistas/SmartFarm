@@ -16,33 +16,128 @@
 <objectViews>
 <OView class="oracle.dbtools.crest.swingui.relational.TVTable" oid="269E4B59-E0F6-1957-614F-ED32E134478E" otype="Table" vid="B5F83036-EAB0-729B-C59F-683FA3F07B11">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<bounds x="261" y="466" width="170" height="110"/>
+<bounds x="573" y="520" width="389" height="147"/>
 </OView>
 <OView class="oracle.dbtools.crest.swingui.relational.TVTable" oid="4D2D08E0-478F-81E0-BE13-B26E5421FF95" otype="Table" vid="9F640E85-04A4-7C0B-1AD4-B03DCF0168AA">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<bounds x="519" y="242" width="170" height="110"/>
+<bounds x="1042" y="279" width="212" height="110"/>
+<useCustomFormat>true</useCustomFormat>
+<useDefaultColor>false</useDefaultColor>
+<backgroundColor>-3342388</backgroundColor>
+<foregroundColor>-16776961</foregroundColor>
+<fonts itemClass="oracle.dbtools.crest.model.design.FontObjectWr">
+<FontObject>
+<foType>Title</foType>
+<fontStyle>1</fontStyle>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Column</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Datatype</foType>
+<colorRGB>-16744448</colorRGB>
+</FontObject>
+<FontObject>
+<foType>PK Element</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>FK Element</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject>
+<foType>UK Element</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Not Null</foType>
+<colorRGB>-65536</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Key</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Comments</foType>
+<colorRGB>-12566464</colorRGB>
+</FontObject>
+</fonts>
 </OView>
 <OView class="oracle.dbtools.crest.swingui.relational.TVTable" oid="9767A194-B216-ECB3-0739-B854E17475F5" otype="Table" vid="4031F2B8-165C-B80F-1CDE-5685A42ADBC1">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<bounds x="258" y="240" width="180" height="136"/>
+<bounds x="570" y="250" width="390" height="225"/>
 </OView>
 <OView class="oracle.dbtools.crest.swingui.relational.TVTable" oid="C9EA6BDB-0BD9-9583-3645-A630FA2B5B5C" otype="Table" vid="8D2E15FE-E3D1-C4E5-1C1B-725B42AAD20F">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<bounds x="36" y="45" width="170" height="110"/>
+<bounds x="103" y="251" width="401" height="187"/>
+<useCustomFormat>true</useCustomFormat>
+<useDefaultColor>false</useDefaultColor>
+<backgroundColor>-3342388</backgroundColor>
+<foregroundColor>-16776961</foregroundColor>
+<fonts itemClass="oracle.dbtools.crest.model.design.FontObjectWr">
+<FontObject>
+<foType>Title</foType>
+<fontStyle>1</fontStyle>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Column</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Datatype</foType>
+<colorRGB>-16744448</colorRGB>
+</FontObject>
+<FontObject>
+<foType>PK Element</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>FK Element</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject>
+<foType>UK Element</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Not Null</foType>
+<colorRGB>-65536</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Key</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject>
+<foType>Comments</foType>
+<colorRGB>-12566464</colorRGB>
+</FontObject>
+</fonts>
 </OView>
 <OView class="oracle.dbtools.crest.swingui.relational.TVTable" oid="CB9FD40F-297D-B704-3650-733FB43BE1FB" otype="Table" vid="05FA706C-F944-6F3A-620D-11D6306350CC">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<bounds x="262" y="44" width="170" height="110"/>
+<bounds x="570" y="51" width="386" height="119"/>
 </OView>
 </objectViews>
 <connectors>
+<Connector class="oracle.dbtools.crest.swingui.relational.TVFKRelation" oid="164C9E09-045B-9511-25CA-502175530D9D" otype="FKIndexAssociation" vid_source="8D2E15FE-E3D1-C4E5-1C1B-725B42AAD20F" vid_target="4031F2B8-165C-B80F-1CDE-5685A42ADBC1">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<backgroundColor>-16777216</backgroundColor>
+<lineWidth>1</lineWidth>
+<points>
+<point x="504" y="344"/>
+<point x="570" y="344"/>
+</points>
+</Connector>
 <Connector class="oracle.dbtools.crest.swingui.relational.TVFKRelation" oid="17933EF6-92E1-EFEB-2265-23463CB85E89" otype="FKIndexAssociation" vid_source="05FA706C-F944-6F3A-620D-11D6306350CC" vid_target="4031F2B8-165C-B80F-1CDE-5685A42ADBC1">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
 <backgroundColor>-16777216</backgroundColor>
 <lineWidth>1</lineWidth>
 <points>
-<point x="347" y="154"/>
-<point x="347" y="240"/>
+<point x="763" y="170"/>
+<point x="763" y="250"/>
 </points>
 </Connector>
 <Connector class="oracle.dbtools.crest.swingui.relational.TVFKRelation" oid="99896367-FFCF-D7FA-F3B3-E7CEBDBE96FC" otype="FKIndexAssociation" vid_source="4031F2B8-165C-B80F-1CDE-5685A42ADBC1" vid_target="B5F83036-EAB0-729B-C59F-683FA3F07B11">
@@ -50,8 +145,8 @@
 <backgroundColor>-16777216</backgroundColor>
 <lineWidth>1</lineWidth>
 <points>
-<point x="346" y="376"/>
-<point x="346" y="466"/>
+<point x="766" y="475"/>
+<point x="766" y="520"/>
 </points>
 </Connector>
 <Connector class="oracle.dbtools.crest.swingui.relational.TVFKRelation" oid="EF1A32F4-3155-D2CA-2768-4F36BE64A326" otype="FKIndexAssociation" vid_source="9F640E85-04A4-7C0B-1AD4-B03DCF0168AA" vid_target="4031F2B8-165C-B80F-1CDE-5685A42ADBC1">
@@ -59,17 +154,8 @@
 <backgroundColor>-16777216</backgroundColor>
 <lineWidth>1</lineWidth>
 <points>
-<point x="519" y="297"/>
-<point x="438" y="297"/>
-</points>
-</Connector>
-<Connector class="oracle.dbtools.crest.swingui.relational.TVFKRelation" oid="F91F6B57-7356-E6C2-EDDB-6CB9D2213828" otype="FKIndexAssociation" vid_source="05FA706C-F944-6F3A-620D-11D6306350CC" vid_target="8D2E15FE-E3D1-C4E5-1C1B-725B42AAD20F">
-<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<backgroundColor>-16777216</backgroundColor>
-<lineWidth>1</lineWidth>
-<points>
-<point x="262" y="99"/>
-<point x="206" y="99"/>
+<point x="1042" y="334"/>
+<point x="960" y="334"/>
 </points>
 </Connector>
 </connectors>

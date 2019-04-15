@@ -2,7 +2,7 @@
 <Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="39A90CA6-CFB2-D76E-1049-0599340ED11B" name="IOT_PERSON">
 <createdBy>Administrator</createdBy>
 <createdTime>2019-03-27 18:23:12 UTC</createdTime>
-<ownerDesignName>Logical</ownerDesignName>
+<ownerDesignName>diagram</ownerDesignName>
 <engineerTo>
 <item key="2252A29D-D72D-1268-3CBB-CAA7C58758A9" value="true"/>
 </engineerTo>
@@ -15,10 +15,10 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="PERSON_ID" id="5F89DA9A-3AC5-488E-2633-3E89E01DD27D">
+<Attribute name="ID" id="5F89DA9A-3AC5-488E-2633-3E89E01DD27D">
 <createdBy>Administrator</createdBy>
 <createdTime>2019-03-27 18:23:39 UTC</createdTime>
-<ownerDesignName>Logical</ownerDesignName>
+<ownerDesignName>diagram</ownerDesignName>
 <engineerTo>
 <item key="2252A29D-D72D-1268-3CBB-CAA7C58758A9" value="true"/>
 </engineerTo>
@@ -31,7 +31,7 @@
 <Attribute name="USERNAME" id="D65E2627-FA87-E5AE-1D03-01988672ED70">
 <createdBy>Administrator</createdBy>
 <createdTime>2019-03-27 18:24:08 UTC</createdTime>
-<ownerDesignName>Logical</ownerDesignName>
+<ownerDesignName>diagram</ownerDesignName>
 <engineerTo>
 <item key="2252A29D-D72D-1268-3CBB-CAA7C58758A9" value="true"/>
 </engineerTo>
@@ -47,7 +47,7 @@
 <identifier id="5978FD0E-7133-3725-D09E-3B3BF9BC0EB5" name="PERSON PK">
 <createdBy>Administrator</createdBy>
 <createdTime>2019-03-27 18:23:44 UTC</createdTime>
-<ownerDesignName>Logical</ownerDesignName>
+<ownerDesignName>diagram</ownerDesignName>
 <shouldEngineer>false</shouldEngineer>
 <engineerTo>
 <item key="2252A29D-D72D-1268-3CBB-CAA7C58758A9" value="false"/>

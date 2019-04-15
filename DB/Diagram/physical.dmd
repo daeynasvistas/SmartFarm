@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="physical" id="FCC1845C-AA8B-E210-8D01-6980FD095E64" version="3.5">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-03-27 17:44:31 UTC</createdTime>
+<ownerDesignName>Logical</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>FCC1845C-AA8B-E210-8D01-6980FD095E64</designId>
+</OSDM_Design>

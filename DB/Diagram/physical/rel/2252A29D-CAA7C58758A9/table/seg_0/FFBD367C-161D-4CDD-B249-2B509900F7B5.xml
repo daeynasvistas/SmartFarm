@@ -1,16 +1,16 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4D2D08E0-478F-81E0-BE13-B26E5421FF95" name="IOT_PERSON">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FFBD367C-161D-4CDD-B249-2B509900F7B5" name="IOT_PERSON">
 <createdBy>administrator</createdBy>
-<createdTime>2019-04-15 13:35:26 UTC</createdTime>
+<createdTime>2019-04-15 15:19:58 UTC</createdTime>
 <generatorID>39A90CA6-CFB2-D76E-1049-0599340ED11B</generatorID>
 <ownerDesignName>physical</ownerDesignName>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="PERSON_ID" id="A270C188-DB38-CE78-9950-0CF5821A8A5E">
+<Column name="ID" id="FA24B709-1D6B-D376-8F61-795E7244F374">
 <createdBy>administrator</createdBy>
-<createdTime>2019-04-15 13:35:26 UTC</createdTime>
+<createdTime>2019-04-15 15:19:58 UTC</createdTime>
 <generatorID>5F89DA9A-3AC5-488E-2633-3E89E01DD27D</generatorID>
 <ownerDesignName>physical</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -20,9 +20,9 @@
 <ownDataTypeParameters>,10,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="USERNAME" id="B88209DE-D62B-8651-C0CF-E1CA1E9880D3">
+<Column name="USERNAME" id="67D55B84-6893-289A-86E1-8A2596D926DF">
 <createdBy>administrator</createdBy>
-<createdTime>2019-04-15 13:35:26 UTC</createdTime>
+<createdTime>2019-04-15 15:19:58 UTC</createdTime>
 <generatorID>D65E2627-FA87-E5AE-1D03-01988672ED70</generatorID>
 <ownerDesignName>physical</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
@@ -35,16 +35,16 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="2FBAC3BC-A2DE-8DA1-4B0C-3546B3D8F1FA" name="IOT_PERSON_PK">
+<ind_PK_UK id="FB505FA3-E55C-72CE-13B0-50A6F86351C3" name="IOT_PERSON_PK">
 <createdBy>administrator</createdBy>
-<createdTime>2019-04-15 13:35:26 UTC</createdTime>
+<createdTime>2019-04-15 15:19:58 UTC</createdTime>
 <generatorID>5978FD0E-7133-3725-D09E-3B3BF9BC0EB5</generatorID>
 <ownerDesignName>physical</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="A270C188-DB38-CE78-9950-0CF5821A8A5E"/>
+<colUsage columnID="FA24B709-1D6B-D376-8F61-795E7244F374"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>
