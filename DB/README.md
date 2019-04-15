@@ -8,14 +8,18 @@
 
 ```SQL
 DROP TABLE iot_node CASCADE CONSTRAINTS;
-
 DROP TABLE iot_person CASCADE CONSTRAINTS;
-
 DROP TABLE iot_sensor CASCADE CONSTRAINTS;
-
 DROP TABLE iot_sensor_data CASCADE CONSTRAINTS;
-
 DROP TABLE iot_sensor_type CASCADE CONSTRAINTS;
+
+DROP SEQUENCE IOT_PERSON_SEQ;
+DROP SEQUENCE IOT_SENSOR_SEQ;
+DROP SEQUENCE IOT_DATA_SEQ;
+DROP SEQUENCE IOT_TYPE_SEQ;
+DROP SEQUENCE IOT_NODE_SEQ;
+
+
 
 CREATE TABLE iot_node (
     id          NUMBER NOT NULL,
@@ -84,7 +88,134 @@ ALTER TABLE iot_sensor
 ALTER TABLE iot_sensor
     ADD CONSTRAINT iot_sensor_iot_sensor_type_fk FOREIGN KEY ( iot_sensor_type_id )
         REFERENCES iot_sensor_type ( id );
+        
+        
+        
+        
+        
+        
+/* SEQUENCE para auto incrementar*/
+/*----------------------  PERSON ---------------------------------- */
+CREATE SEQUENCE IOT_person_seq
+ START WITH     1
+ INCREMENT BY   1
+ NOCACHE
+ NOCYCLE;
+ 
+ CREATE OR REPLACE TRIGGER person_on_insert
+  BEFORE INSERT ON iot_person
+  FOR EACH ROW
+BEGIN
+  SELECT IOT_person_seq.nextval
+  INTO :new.id
+  FROM dual;
+END;
+/
 
+/*----------------------  SENSOR ---------------------------------- */
+CREATE SEQUENCE IOT_sensor_seq
+ START WITH     1
+ INCREMENT BY   1
+ NOCACHE
+ NOCYCLE;
+ 
+ CREATE OR REPLACE TRIGGER sensor_on_insert
+  BEFORE INSERT ON iot_sensor
+  FOR EACH ROW
+BEGIN
+  SELECT IOT_sensor_seq.nextval
+  INTO :new.sensor_id
+  FROM dual;
+END;
+/
+
+/*----------------------  DATA ---------------------------------- */
+/* PERSON */
+CREATE SEQUENCE IOT_data_seq
+ START WITH     1000
+ INCREMENT BY   1
+ NOCACHE
+ NOCYCLE;
+ 
+ 
+  CREATE OR REPLACE TRIGGER data_on_insert
+  BEFORE INSERT ON iot_sensor_data
+  FOR EACH ROW
+BEGIN
+  SELECT IOT_data_seq.nextval
+  INTO :new.id
+  FROM dual;
+END;
+/
+
+/*----------------------  TYPE ---------------------------------- */
+/* PERSON */
+CREATE SEQUENCE IOT_type_seq
+ START WITH     1000
+ INCREMENT BY   1
+ NOCACHE
+ NOCYCLE;
+ 
+ 
+  CREATE OR REPLACE TRIGGER type_on_insert
+  BEFORE INSERT ON iot_sensor_type
+  FOR EACH ROW
+BEGIN
+  SELECT IOT_type_seq.nextval
+  INTO :new.id
+  FROM dual;
+END;
+/
+
+/*----------------------  NODE ---------------------------------- */
+/* PERSON */
+CREATE SEQUENCE IOT_node_seq
+ START WITH     1000
+ INCREMENT BY   1
+ NOCACHE
+ NOCYCLE; 
+ 
+  CREATE OR REPLACE TRIGGER node_on_insert
+  BEFORE INSERT ON iot_node
+  FOR EACH ROW
+BEGIN
+  SELECT IOT_node_seq.nextval
+  INTO :new.id
+  FROM dual;
+END;
+/
+
+/*----------------------  END ---------------------------------- */
+        
+/* DUMMY DATA
+/*add PERSON*/
+INSERT INTO iot_person (username) VALUES ('daniel@ept.pt');
+/*add IOT_TYPE*  desc iot_sensor_type;*/
+/*
+air_temp
+air_humidity
+air_pressure
+air_CO2
+air_TVOC
+lux
+flame
+soil_humidity
+sound
+*/
+
+INSERT INTO iot_type (name, unit, description) VALUES ('air_temperature','C','Temperatura ambiente');        
+INSERT INTO iot_type (name, unit, description) VALUES ('air_humidity','%','Humidade ambiente');   
+INSERT INTO iot_type (name, unit, description) VALUES ('air_pressure','atm','Pressão atmosférica');   
+INSERT INTO iot_type (name, unit, description) VALUES ('air_CO2','ppm','Concentração Dióxido de Carbono no ar');   
+INSERT INTO iot_type (name, unit, description) VALUES ('air_TVOC','mg/m3','Compostos Orgânicos Voláteis Totais');   
+INSERT INTO iot_type (name, unit, description) VALUES ('soil_humidity','%','Humidade do solo');   
+INSERT INTO iot_type (name, unit, description) VALUES ('lux','Lux','Luminosidade');   
+INSERT INTO iot_type (name, unit, description) VALUES ('flame','UV','Deteção de chama');   
+INSERT INTO iot_type (name, unit, description) VALUES ('sound','dB','Som Ambiente');   
+
+
+
+        
 ```
 
 
