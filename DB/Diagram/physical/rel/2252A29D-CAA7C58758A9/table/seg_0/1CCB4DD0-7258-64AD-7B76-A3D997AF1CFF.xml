@@ -1,0 +1,114 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1CCB4DD0-7258-64AD-7B76-A3D997AF1CFF" name="IOT_NODE">
+<createdBy>administrator</createdBy>
+<createdTime>2019-04-15 15:19:58 UTC</createdTime>
+<generatorID>66F5C229-8E6D-371D-B00C-5C6129AB9B3A</generatorID>
+<ownerDesignName>physical</ownerDesignName>
+<ordsAlias>iot_nodev1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="144968A5-7DB7-A674-2449-E470EF6BC596">
+<createdBy>administrator</createdBy>
+<createdTime>2019-04-15 15:19:58 UTC</createdTime>
+<generatorID>0D221B54-3115-EB77-0941-9E239BC672A0</generatorID>
+<ownerDesignName>physical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MODEL" id="C6EF071F-EE35-D1B0-F802-EAF9D7158916">
+<createdBy>administrator</createdBy>
+<createdTime>2019-04-15 15:19:58 UTC</createdTime>
+<generatorID>F8B8A580-69CF-F299-921B-276790A59375</generatorID>
+<ownerDesignName>physical</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<ownDataTypeParameters>25,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FIRM_VERS" id="285BDDAB-EFF3-8FEF-5986-CB3AC4E79275">
+<createdBy>administrator</createdBy>
+<createdTime>2019-04-15 15:19:58 UTC</createdTime>
+<generatorID>9EEA6B60-4EFA-4982-EB86-0ED22033049C</generatorID>
+<ownerDesignName>physical</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>8</dataTypeSize>
+<ownDataTypeParameters>8,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MAC" id="570A827C-7661-8E86-BFCE-B46B47A9E39F">
+<createdBy>administrator</createdBy>
+<createdTime>2019-04-15 15:19:58 UTC</createdTime>
+<generatorID>208B133D-C537-3C8F-4826-B24973147F66</generatorID>
+<ownerDesignName>physical</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IP" id="B61360E6-4DA8-7088-EF72-5BA55B22D66E">
+<createdBy>administrator</createdBy>
+<createdTime>2019-04-15 15:19:58 UTC</createdTime>
+<generatorID>3D810260-CC25-A2E2-E7E7-BCCD787D5BB4</generatorID>
+<ownerDesignName>physical</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LATITUDE" id="A9A7D919-78D1-38F8-3A9A-2F8A28D445CF">
+<createdBy>administrator</createdBy>
+<createdTime>2019-04-15 17:48:15 UTC</createdTime>
+<ownerDesignName>physical</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<ownDataTypeParameters>,20,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LONGITUDE" id="B4111037-8587-D52C-9E0A-89AA6D17F6ED">
+<createdBy>administrator</createdBy>
+<createdTime>2019-04-15 17:48:30 UTC</createdTime>
+<ownerDesignName>physical</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<ownDataTypeParameters>,20,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EBD04587-7D14-F49F-201B-EF33DC901F50" name="IOT_NODE_PK">
+<createdBy>administrator</createdBy>
+<createdTime>2019-04-15 15:19:58 UTC</createdTime>
+<generatorID>B534D9FC-1844-8133-47F0-2DD42324C20D</generatorID>
+<ownerDesignName>physical</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="144968A5-7DB7-A674-2449-E470EF6BC596"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
