@@ -203,15 +203,15 @@ soil_humidity
 sound
 */
 
-INSERT INTO iot_type (name, unit, description) VALUES ('air_temperature','C','Temperatura ambiente');        
-INSERT INTO iot_type (name, unit, description) VALUES ('air_humidity','%','Humidade ambiente');   
-INSERT INTO iot_type (name, unit, description) VALUES ('air_pressure','atm','Pressão atmosférica');   
-INSERT INTO iot_type (name, unit, description) VALUES ('air_CO2','ppm','Concentração Dióxido de Carbono no ar');   
-INSERT INTO iot_type (name, unit, description) VALUES ('air_TVOC','mg/m3','Compostos Orgânicos Voláteis Totais');   
-INSERT INTO iot_type (name, unit, description) VALUES ('soil_humidity','%','Humidade do solo');   
-INSERT INTO iot_type (name, unit, description) VALUES ('lux','Lux','Luminosidade');   
-INSERT INTO iot_type (name, unit, description) VALUES ('flame','UV','Deteção de chama');   
-INSERT INTO iot_type (name, unit, description) VALUES ('sound','dB','Som Ambiente');   
+INSERT INTO iot_sensor_iot_type (name, unit, description) VALUES ('air_temperature','C','Temperatura ambiente');        
+INSERT INTO iot_sensor_iot_type (name, unit, description) VALUES ('air_humidity','%','Humidade ambiente');   
+INSERT INTO iot_sensor_iot_type (name, unit, description) VALUES ('air_pressure','atm','Pressão atmosférica');   
+INSERT INTO iot_sensor_iot_type (name, unit, description) VALUES ('air_CO2','ppm','Concentração Dióxido de Carbono no ar');   
+INSERT INTO iot_sensor_iot_type (name, unit, description) VALUES ('air_TVOC','mg/m3','Compostos Orgânicos Voláteis Totais');   
+INSERT INTO iot_sensor_iot_type (name, unit, description) VALUES ('soil_humidity','%','Humidade do solo');   
+INSERT INTO iot_sensor_iot_type (name, unit, description) VALUES ('lux','Lux','Luminosidade');   
+INSERT INTO iot_sensor_iot_type (name, unit, description) VALUES ('flame','UV','Deteção de chama');   
+INSERT INTO iot_sensor_iot_type (name, unit, description) VALUES ('sound','dB','Som Ambiente');   
 
 
 
