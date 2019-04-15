@@ -26,9 +26,9 @@ CREATE TABLE iot_node (
     model       VARCHAR2(25),
     firm_vers   VARCHAR2(8),
     mac         VARCHAR2(20),
-    pos         mdsys.sdo_geometry,
-    has_api     CHAR(1),
-    ip          VARCHAR2(20)
+    ip          VARCHAR2(20),
+    latitude    FLOAT(20),
+    longitude   FLOAT(20)
 );
 
 ALTER TABLE iot_node ADD CONSTRAINT iot_node_pk PRIMARY KEY ( id );
@@ -58,7 +58,8 @@ CREATE TABLE iot_sensor_data (
     id              NUMBER(8) NOT NULL,
     date_of_value   DATE,
     value           FLOAT(6),
-    pos             mdsys.sdo_geometry,
+    longitude       FLOAT(20),
+    latitude        FLOAT(20),
     iot_sensor_id   NUMBER(7) NOT NULL
 );
 
@@ -68,7 +69,7 @@ CREATE TABLE iot_sensor_type (
     id            NUMBER NOT NULL,
     name          VARCHAR2(20),
     unit          VARCHAR2(5),
-    description   VARCHAR2(20)
+    description   VARCHAR2(50)
 );
 
 ALTER TABLE iot_sensor_type ADD CONSTRAINT iot_sensor_type_pk PRIMARY KEY ( id );
@@ -88,8 +89,7 @@ ALTER TABLE iot_sensor
 ALTER TABLE iot_sensor
     ADD CONSTRAINT iot_sensor_iot_sensor_type_fk FOREIGN KEY ( iot_sensor_type_id )
         REFERENCES iot_sensor_type ( id );
-        
-        
+
         
         
         
@@ -190,6 +190,7 @@ END;
 /* DUMMY DATA
 /*add PERSON*/
 INSERT INTO iot_person (username) VALUES ('daniel@ept.pt');
+
 /*add IOT_TYPE*  desc iot_sensor_type;*/
 /*
 air_temp
@@ -203,17 +204,20 @@ soil_humidity
 sound
 */
 
-INSERT INTO iot_sensor_iot_type (name, unit, description) VALUES ('air_temperature','C','Temperatura ambiente');        
-INSERT INTO iot_sensor_iot_type (name, unit, description) VALUES ('air_humidity','%','Humidade ambiente');   
-INSERT INTO iot_sensor_iot_type (name, unit, description) VALUES ('air_pressure','atm','Pressão atmosférica');   
-INSERT INTO iot_sensor_iot_type (name, unit, description) VALUES ('air_CO2','ppm','Concentração Dióxido de Carbono no ar');   
-INSERT INTO iot_sensor_iot_type (name, unit, description) VALUES ('air_TVOC','mg/m3','Compostos Orgânicos Voláteis Totais');   
-INSERT INTO iot_sensor_iot_type (name, unit, description) VALUES ('soil_humidity','%','Humidade do solo');   
-INSERT INTO iot_sensor_iot_type (name, unit, description) VALUES ('lux','Lux','Luminosidade');   
-INSERT INTO iot_sensor_iot_type (name, unit, description) VALUES ('flame','UV','Deteção de chama');   
-INSERT INTO iot_sensor_iot_type (name, unit, description) VALUES ('sound','dB','Som Ambiente');   
+INSERT INTO iot_sensor_type (name, unit, description) VALUES ('air_temperature','C','Temperatura ambiente');        
+INSERT INTO iot_sensor_type (name, unit, description) VALUES ('air_humidity','%','Humidade ambiente');   
+INSERT INTO iot_sensor_type (name, unit, description) VALUES ('air_pressure','atm','Pressão atmosférica');   
+INSERT INTO iot_sensor_type (name, unit, description) VALUES ('air_CO2','ppm','Concentração Dióxido de Carbono');   
+INSERT INTO iot_sensor_type (name, unit, description) VALUES ('air_TVOC','mg/m3','Compostos Orgânicos Voláteis');   
+INSERT INTO iot_sensor_type (name, unit, description) VALUES ('soil_humidity','%','Humidade do solo');   
+INSERT INTO iot_sensor_type (name, unit, description) VALUES ('lux','Lux','Luminosidade');   
+INSERT INTO iot_sensor_type (name, unit, description) VALUES ('flame','UV','Deteção de chama');   
+INSERT INTO iot_sensor_type (name, unit, description) VALUES ('sound','dB','Som Ambiente');   
 
 
+/*add NODE*/
+INSERT INTO iot_node (model, FIRM_VERS, MAC, IP, LATITUDE, LONGITUDE) VALUES ('ESP32 Lora', '0.1','00000000','192.000.000.000',40.777083,-7.354986);
+  
 
         
 ```
