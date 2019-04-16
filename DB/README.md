@@ -7,6 +7,7 @@
 ![Logical](https://user-images.githubusercontent.com/2634610/56147984-4136e200-5fa1-11e9-9e86-606eb2059150.png)
 
 ```SQL
+
 DROP TABLE iot_node CASCADE CONSTRAINTS;
 DROP TABLE iot_person CASCADE CONSTRAINTS;
 DROP TABLE iot_sensor CASCADE CONSTRAINTS;
@@ -215,10 +216,53 @@ INSERT INTO iot_sensor_type (name, unit, description) VALUES ('flame','UV','Dete
 INSERT INTO iot_sensor_type (name, unit, description) VALUES ('sound','dB','Som Ambiente');   
 
 
+
 /*add NODE*/
 INSERT INTO iot_node (model, FIRM_VERS, MAC, IP, LATITUDE, LONGITUDE) VALUES ('ESP32 Lora', '0.1','00000000','192.000.000.000',40.777083,-7.354986);
-  
 
+
+
+
+/*add SENSOR*/
+INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_PERSON_ID,IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
+                VALUES ('BME280',  'Digital Sensor', 'Temperature, Humidity, Atmospheric Pressure', SYSDATE,NULL, 1, 1000, 1000);
+INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_PERSON_ID,IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
+                VALUES ('BME280',  'Digital Sensor', 'Temperature, Humidity, Atmospheric Pressure', SYSDATE,NULL, 1, 1001, 1000);
+INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_PERSON_ID,IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
+                VALUES ('BME280',  'Digital Sensor', 'Temperature, Humidity, Atmospheric Pressure', SYSDATE,NULL, 1, 1002, 1000);
+
+INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_PERSON_ID,IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
+                VALUES ('CCS811',  'Air Mass Sensor', 'NTC CO2 eCO2 TVOC Air Mass Sensor', SYSDATE,NULL, 1, 1003, 1000);
+INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_PERSON_ID,IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
+                VALUES ('CCS811',  'Air Mass Sensor', 'NTC CO2 eCO2 TVOC Air Mass Sensor', SYSDATE,NULL, 1, 1004, 1000);
+                                                            
+INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_PERSON_ID,IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
+                VALUES ('YL-38',  'Soil Hygrometer', 'Detection Module Moisture Sensor', SYSDATE,NULL, 1, 1005, 1000);
+    
+INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_PERSON_ID,IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
+                VALUES ('GL5528',  'Photosensitive', 'detect the light intensity', SYSDATE,NULL, 1, 1006, 1000);
+    
+INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_PERSON_ID,IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
+                VALUES ('GL5528',  'Photosensitive', 'detect the light intensity', SYSDATE,NULL, 1, 1006, 1000);
+    
+INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_PERSON_ID,IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
+                VALUES ('OKY3131',  'Sound Detection', 'High Sensitive Microphone', SYSDATE,NULL, 1, 1008, 1000);
+
+    
+
+
+
+/*
+select * from iot_person;  
+select * from iot_sensor_type;  
+select * from iot_node;
+select * from iot_sensor;
+desc iot_sensor;
+
+
+*/    
+    
+  
         
 ```
 
