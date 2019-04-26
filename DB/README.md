@@ -2,6 +2,10 @@
 
 ![Relational_1](https://user-images.githubusercontent.com/2634610/56832378-b89f2800-6863-11e9-83d0-87eae160fd18.png)
 
+![logic](https://user-images.githubusercontent.com/2634610/56832582-4ed34e00-6864-11e9-984a-f65a97449d98.png)
+
+
+
 
 ### V0.0.2
 
