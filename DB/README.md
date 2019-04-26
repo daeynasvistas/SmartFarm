@@ -4,15 +4,6 @@
 
 ![logic](https://user-images.githubusercontent.com/2634610/56832582-4ed34e00-6864-11e9-984a-f65a97449d98.png)
 
-
-
-
-### V0.0.2
-
-![Relational_1](https://user-images.githubusercontent.com/2634610/56147983-4136e200-5fa1-11e9-948c-c34dbb49a90c.png)
-
-![Logical](https://user-images.githubusercontent.com/2634610/56147984-4136e200-5fa1-11e9-9e86-606eb2059150.png)
-
 ```SQL
 
 DROP TABLE iot_node CASCADE CONSTRAINTS;
@@ -295,6 +286,15 @@ desc iot_sensor;
   
         
 ```
+
+
+
+### V0.0.2
+
+![Relational_1](https://user-images.githubusercontent.com/2634610/56147983-4136e200-5fa1-11e9-948c-c34dbb49a90c.png)
+
+![Logical](https://user-images.githubusercontent.com/2634610/56147984-4136e200-5fa1-11e9-9e86-606eb2059150.png)
+
 
 
 
