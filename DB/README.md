@@ -325,7 +325,7 @@ ALTER TABLE iot_sensor
 create or replace function date_to_unix_ts( PDate in date ) return number is
    l_unix_ts number;
 begin
-   l_unix_ts := ROUND(( PDate - date '1970-01-01' ) * 60 * 60 * 24);
+   l_unix_ts := ROUND(( PDate - TO_DATE('01.01.1970','dd.mm.yyyy')) * 60 * 60 * 24);
    return l_unix_ts;
 end;
 /
@@ -487,8 +487,6 @@ INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE,
                 VALUES ('OKY3131',  'Sound Detection', 'High Sensitive Microphone', date_to_unix_ts(sysdate),NULL, 1, 1008, 1000);
 
     
-
-
 
 
 
