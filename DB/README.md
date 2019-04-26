@@ -27,17 +27,26 @@ CREATE TABLE iot_node (
     model       VARCHAR2(25),
     firm_vers   VARCHAR2(8),
     mac         VARCHAR2(20),
-    ip          VARCHAR2(20),
-    latitude    FLOAT(20),
-    longitude   FLOAT(20)
-);
+    longitude   FLOAT,
+    latitude    FLOAT,
+    altitude    NUMBER(10),
+    has_api     CHAR(1),
+    ip          VARCHAR2(20)
+)
+LOGGING;
 
 ALTER TABLE iot_node ADD CONSTRAINT iot_node_pk PRIMARY KEY ( id );
 
 CREATE TABLE iot_person (
-    id         NUMBER(10) NOT NULL,
-    username   VARCHAR2(50)
-);
+    id              NUMBER(10) NOT NULL,
+    username        VARCHAR2(50),
+    password        VARCHAR2(100),
+    key             VARCHAR2(60),
+    secret          VARCHAR2(100),
+    creation_date   NUMBER(16),
+    ativo           NUMBER
+)
+LOGGING;
 
 ALTER TABLE iot_person ADD CONSTRAINT iot_person_pk PRIMARY KEY ( id );
 
@@ -46,23 +55,25 @@ CREATE TABLE iot_sensor (
     code                 VARCHAR2(20),
     name                 VARCHAR2(20),
     description          NVARCHAR2(80),
-    date_installed       DATE,
-    date_terminate       DATE,
+    date_installed       NUMBER(16),
+    date_terminate       NUMBER(16),
     iot_person_id        NUMBER(10) NOT NULL,
     iot_sensor_type_id   NUMBER NOT NULL,
     iot_node_id          NUMBER NOT NULL
-);
+)
+LOGGING;
 
 ALTER TABLE iot_sensor ADD CONSTRAINT iot_sensor_pk PRIMARY KEY ( sensor_id );
 
 CREATE TABLE iot_sensor_data (
     id              NUMBER(8) NOT NULL,
-    date_of_value   DATE,
+    date_of_value   NUMBER(16),
     value           FLOAT(6),
-    longitude       FLOAT(20),
-    latitude        FLOAT(20),
+    longitude       FLOAT,
+    latitude        FLOAT,
     iot_sensor_id   NUMBER(7) NOT NULL
-);
+)
+LOGGING;
 
 ALTER TABLE iot_sensor_data ADD CONSTRAINT iot_sensor_data_pk PRIMARY KEY ( id );
 
@@ -70,31 +81,34 @@ CREATE TABLE iot_sensor_type (
     id            NUMBER NOT NULL,
     name          VARCHAR2(20),
     unit          VARCHAR2(5),
-    description   VARCHAR2(50)
-);
+    description   VARCHAR2(20)
+)
+LOGGING;
 
 ALTER TABLE iot_sensor_type ADD CONSTRAINT iot_sensor_type_pk PRIMARY KEY ( id );
 
 ALTER TABLE iot_sensor_data
     ADD CONSTRAINT iot_sensor_data_iot_sensor_fk FOREIGN KEY ( iot_sensor_id )
-        REFERENCES iot_sensor ( sensor_id );
+        REFERENCES iot_sensor ( sensor_id )
+    NOT DEFERRABLE;
 
 ALTER TABLE iot_sensor
     ADD CONSTRAINT iot_sensor_iot_node_fk FOREIGN KEY ( iot_node_id )
-        REFERENCES iot_node ( id );
+        REFERENCES iot_node ( id )
+    NOT DEFERRABLE;
 
 ALTER TABLE iot_sensor
     ADD CONSTRAINT iot_sensor_iot_person_fk FOREIGN KEY ( iot_person_id )
-        REFERENCES iot_person ( id );
+        REFERENCES iot_person ( id )
+    NOT DEFERRABLE;
 
 ALTER TABLE iot_sensor
     ADD CONSTRAINT iot_sensor_iot_sensor_type_fk FOREIGN KEY ( iot_sensor_type_id )
-        REFERENCES iot_sensor_type ( id );
+        REFERENCES iot_sensor_type ( id )
+    NOT DEFERRABLE;
 
-        
-        
-        
-        
+
+
 /* SEQUENCE para auto incrementar*/
 /*----------------------  PERSON ---------------------------------- */
 CREATE SEQUENCE IOT_person_seq
@@ -218,35 +232,42 @@ INSERT INTO iot_sensor_type (name, unit, description) VALUES ('sound','dB','Som 
 
 
 /*add NODE*/
-INSERT INTO iot_node (model, FIRM_VERS, MAC, IP, LATITUDE, LONGITUDE) VALUES ('ESP32 Lora', '0.1','00000000','192.000.000.000',40.777083,-7.354986);
+INSERT INTO iot_node (model, FIRM_VERS, MAC, IP, LATITUDE, LONGITUDE, ALTITUDE) VALUES ('ESP32 Lora', '0.1','00000000','192.000.000.000',40.777083,-7.354986,1090);
 
+/*ADD FUNCTION */
+create or replace function date_to_unix_ts( PDate in date ) return number is
+   l_unix_ts number;
+begin
+   l_unix_ts := ROUND(( PDate - date '1970-01-01' ) * 60 * 60 * 24);
+   return l_unix_ts;
+end;
 
 
 
 /*add SENSOR*/
 INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_PERSON_ID,IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
-                VALUES ('BME280',  'Digital Sensor', 'Temperature, Humidity, Atmospheric Pressure', SYSDATE,NULL, 1, 1000, 1000);
+                VALUES ('BME280',  'Digital Sensor', 'Temperature, Humidity, Atmospheric Pressure', date_to_unix_ts(SYSDATE),NULL, 1, 1000, 1000);
 INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_PERSON_ID,IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
-                VALUES ('BME280',  'Digital Sensor', 'Temperature, Humidity, Atmospheric Pressure', SYSDATE,NULL, 1, 1001, 1000);
+                VALUES ('BME280',  'Digital Sensor', 'Temperature, Humidity, Atmospheric Pressure', date_to_unix_ts(SYSDATE),NULL, 1, 1001, 1000);
 INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_PERSON_ID,IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
-                VALUES ('BME280',  'Digital Sensor', 'Temperature, Humidity, Atmospheric Pressure', SYSDATE,NULL, 1, 1002, 1000);
+                VALUES ('BME280',  'Digital Sensor', 'Temperature, Humidity, Atmospheric Pressure', date_to_unix_ts(SYSDATE),NULL, 1, 1002, 1000);
 
 INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_PERSON_ID,IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
-                VALUES ('CCS811',  'Air Mass Sensor', 'NTC CO2 eCO2 TVOC Air Mass Sensor', SYSDATE,NULL, 1, 1003, 1000);
+                VALUES ('CCS811',  'Air Mass Sensor', 'NTC CO2 eCO2 TVOC Air Mass Sensor', date_to_unix_ts(SYSDATE),NULL, 1, 1003, 1000);
 INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_PERSON_ID,IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
-                VALUES ('CCS811',  'Air Mass Sensor', 'NTC CO2 eCO2 TVOC Air Mass Sensor', SYSDATE,NULL, 1, 1004, 1000);
+                VALUES ('CCS811',  'Air Mass Sensor', 'NTC CO2 eCO2 TVOC Air Mass Sensor', date_to_unix_ts(SYSDATE),NULL, 1, 1004, 1000);
                                                             
 INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_PERSON_ID,IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
-                VALUES ('YL-38',  'Soil Hygrometer', 'Detection Module Moisture Sensor', SYSDATE,NULL, 1, 1005, 1000);
+                VALUES ('YL-38',  'Soil Hygrometer', 'Detection Module Moisture Sensor', date_to_unix_ts(SYSDATE),NULL, 1, 1005, 1000);
     
 INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_PERSON_ID,IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
-                VALUES ('GL5528',  'Photosensitive', 'detect the light intensity', SYSDATE,NULL, 1, 1006, 1000);
+                VALUES ('GL5528',  'Photosensitive', 'detect the light intensity', date_to_unix_ts(SYSDATE),NULL, 1, 1006, 1000);
     
 INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_PERSON_ID,IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
-                VALUES ('GL5528',  'Photosensitive', 'detect the light intensity', SYSDATE,NULL, 1, 1006, 1000);
+                VALUES ('GL5528',  'Photosensitive', 'detect the light intensity', date_to_unix_ts(SYSDATE),NULL, 1, 1006, 1000);
     
 INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_PERSON_ID,IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
-                VALUES ('OKY3131',  'Sound Detection', 'High Sensitive Microphone', SYSDATE,NULL, 1, 1008, 1000);
+                VALUES ('OKY3131',  'Sound Detection', 'High Sensitive Microphone', date_to_unix_ts(SYSDATE),NULL, 1, 1008, 1000);
 
     
 
@@ -261,6 +282,7 @@ desc iot_sensor;
 
 
 */    
+
     
   
         
