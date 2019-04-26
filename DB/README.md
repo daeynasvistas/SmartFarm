@@ -81,7 +81,7 @@ CREATE TABLE iot_sensor_type (
     id            NUMBER NOT NULL,
     name          VARCHAR2(20),
     unit          VARCHAR2(5),
-    description   VARCHAR2(20)
+    description   VARCHAR2(80)
 )
 LOGGING;
 
@@ -282,6 +282,7 @@ desc iot_sensor;
 
 
 */    
+
 
     
   
