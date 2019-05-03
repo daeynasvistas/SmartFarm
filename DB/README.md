@@ -64,19 +64,11 @@ LOGGING;
 ALTER TABLE iot_sensor ADD CONSTRAINT iot_sensor_pk PRIMARY KEY ( sensor_id );
 
 CREATE TABLE iot_sensor_data (
-<<<<<<< HEAD
-    id              NUMBER(12) NOT NULL,
-    date_of_value   TIMESTAMP,
-    value           DECIMAL(5,2),
-    longitude       FLOAT(20),
-    latitude        FLOAT(20),
-=======
     id              NUMBER(8) NOT NULL,
     date_of_value   NUMBER(16),
     value           FLOAT(6),
     longitude       FLOAT,
     latitude        FLOAT,
->>>>>>> 7ffe4173e1084532f1f50b5a938bbf482b80d450
     iot_sensor_id   NUMBER(7) NOT NULL
 )
 LOGGING;
