@@ -28,8 +28,8 @@
     {
         "node_id": 1,
         "date_of_value": "1556968800",
-        "air_temp": 22.0
-        "air_humidity": 30.0
+        "air_temp": 22.0,
+        "air_humidity": 30.0,
         "air_pressure": 1140,
         "air_CO2": 952,
         "air_TVOC": 458,
@@ -41,12 +41,12 @@
     {
         "node_id": 2,
         "date_of_value": "1556969160",
-        "air_temp": 36.0
-        "air_humidity": 35.0
-        "air_pressure": 950
-        "air_CO2": 120
-        "air_TVOC": 10
-        "lux": 1023
+        "air_temp": 36.0,
+        "air_humidity": 35.0,
+        "air_pressure": 950,
+        "air_CO2": 120,
+        "air_TVOC": 10,
+        "lux": 1023,
         "flame": 10,
         "soil_humidity": 800,
         "sound": 40
