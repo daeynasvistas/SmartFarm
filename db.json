@@ -64,6 +64,21 @@
         "soil_humidity": 140,
         "sound": 40
     }
+],
+   "node":[
+    {
+        "node_id": 1,
+        "date_of_value": 1556969160,
+        "air_temp": 23.1,
+        "air_humidity": 28.7,
+        "air_pressure": 1540,
+        "air_CO2": 982,
+        "air_TVOC": 468,
+        "lux": 540,
+        "flame": 10,
+        "soil_humidity": 230,
+        "sound": 40
+    }
 ]
   
 }
