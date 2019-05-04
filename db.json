@@ -14,7 +14,7 @@
   "nodes":[
     {
         "node_id": 1,
-        "date_of_value": "1556969160",
+        "date_of_value": 1556969160,
         "air_temp": 23.1,
         "air_humidity": 28.7,
         "air_pressure": 1540,
@@ -27,7 +27,7 @@
     },
     {
         "node_id": 1,
-        "date_of_value": "1556968800",
+        "date_of_value": 1556968800,
         "air_temp": 22.0,
         "air_humidity": 30.0,
         "air_pressure": 1140,
@@ -40,7 +40,7 @@
     },
     {
         "node_id": 2,
-        "date_of_value": "1556969160",
+        "date_of_value": 1556969160,
         "air_temp": 36.0,
         "air_humidity": 35.0,
         "air_pressure": 950,
@@ -53,7 +53,7 @@
     },
     {
         "node_id": 2,
-        "date_of_value": "1556968800",
+        "date_of_value": 1556968800,
         "air_temp": 21.1,
         "air_humidity": 38.7,
         "air_pressure": 300,
