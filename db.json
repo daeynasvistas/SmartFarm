@@ -65,7 +65,7 @@
         "sound": 40
     }
 ],
-   "node":[
+   "node":
     {
         "node_id": 1,
         "date_of_value": 1556969160,
@@ -79,6 +79,5 @@
         "soil_humidity": 230,
         "sound": 40
     }
-]
   
 }
