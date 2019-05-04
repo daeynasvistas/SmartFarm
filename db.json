@@ -22,7 +22,7 @@
         "air_TVOC": 468,
         "lux": 540,
         "flame": 10,
-        "soil_humidity": 230
+        "soil_humidity": 230,
         "sound": 40
     },
     {
@@ -48,7 +48,7 @@
         "air_TVOC": 10
         "lux": 1023
         "flame": 10,
-        "soil_humidity": 800
+        "soil_humidity": 800,
         "sound": 40
     },
     {
