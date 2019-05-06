@@ -326,6 +326,98 @@ desc iot_sensor;
 
 */        
   
+
+/*
+
+PROCEDIMENTOS Vers 0.4
+
+*/
+
+/*--------------------------------------------------------------------------*/
+/*---------------RECEBER VALORES DE UM SENSOR ESP32 -----------------------*/
+/*--------------------------------------------------------------------------*/
+CREATE OR REPLACE PROCEDURE GET_API_sensor_VALUES IS
+    /*JSON stuff*/   
+    v_json       CLOB;
+    v_json_query CLOB;
+    v_json_value CLOB;
+    /*Multiplos valores de sensores no mesmonode*/   
+    type sensorsArray IS VARRAY(9) OF NUMBER(6,2); 
+    type sensorNameArray IS VARRAY(9) OF VARCHAR2(20);
+    sensorValue sensorsArray;     
+    sensorName sensorNameArray; 
+    total INTEGER; 
+  
+    /*MODEL: iot_sensor_data*/
+    f_IOT_NODE_MAC        VARCHAR2(20);  
+    f_IOT_SENSOR_ID       NUMBER(8);
+    f_DATE_OF_VALUE       NUMBER(16,0);
+    
+    f_VALUE_air_temp      NUMBER(6,2);
+    f_VALUE_air_humidity  NUMBER(6,2);    
+    f_VALUE_air_pressure  NUMBER(6,2);
+    f_VALUE_air_CO2       NUMBER(6,2);    
+    f_VALUE_air_TVOC      NUMBER(6,2);
+    f_VALUE_lux           NUMBER(6,2);    
+    f_VALUE_flame         NUMBER(6,2);   
+    f_VALUE_soil_humidity NUMBER(6,2);    
+    f_VALUE_sound         NUMBER(6,2);
+    
+    f_LONGITUDE     CLOB;    
+    f_LATITUDE      CLOB;
+
+BEGIN
+    v_json := bda.bda.return_web_page('http://my-json-server.typicode.com/daeynasvistas/SmartFarm/node');
+    --dbms_output.put_line(v_json);
+   -- f_IOT_NODE_MAC = SELECT 
+   SELECT 
+        date_to_unix_ts(SYSDATE), --JSON_VALUE(v_json, '$.date_of_value'),
+        JSON_VALUE(v_json, '$.id'),
+        TO_NUMBER(JSON_VALUE(v_json, '$.air_temp'), '999.99'),
+        TO_NUMBER(JSON_VALUE(v_json, '$.air_humidity'), '999.99'),
+        TO_NUMBER(JSON_VALUE(v_json, '$.air_pressure'), '9999'),
+        TO_NUMBER(JSON_VALUE(v_json, '$.air_CO2'), '9999'),
+        TO_NUMBER(JSON_VALUE(v_json, '$.air_TVOC'), '9999'),
+        TO_NUMBER(JSON_VALUE(v_json, '$.lux'), '9999'),
+        TO_NUMBER(JSON_VALUE(v_json, '$.flame'), '9999'),
+        TO_NUMBER(JSON_VALUE(v_json, '$.soil_humidity'), '9999'),
+        TO_NUMBER(JSON_VALUE(v_json, '$.sound'), '9999')
+    INTO 
+        f_DATE_OF_VALUE,
+        f_IOT_NODE_MAC,
+        f_VALUE_air_temp,f_VALUE_air_humidity,f_VALUE_air_pressure,f_VALUE_air_CO2,f_VALUE_air_TVOC,f_VALUE_lux,f_VALUE_flame,f_VALUE_soil_humidity,f_VALUE_sound
+ 
+    FROM dual;
+      -- dbms_output.put_line(f_IOT_SENSOR_ID||' -- '||f_DATE_OF_VALUE||' -- '||f_VALUE_air_temp||' -- '||f_VALUE_air_humidity||' -- '||f_VALUE_air_pressure||' -- '||f_VALUE_air_CO2||' -- '||f_VALUE_air_TVOC      ||' -- '||f_VALUE_lux||' -- '||f_VALUE_flame||' -- '||f_VALUE_soil_humidity||' -- '||f_VALUE_sound);
+    sensorValue := sensorsArray(f_VALUE_air_temp,f_VALUE_air_humidity,f_VALUE_air_pressure,f_VALUE_air_CO2,f_VALUE_air_TVOC,f_VALUE_soil_humidity,f_VALUE_lux,f_VALUE_flame,f_VALUE_sound); 
+    sensorName := sensorNameArray('air_temperature','air_humidity','air_pressure','air_CO2','air_TVOC','soil_humidity','lux','flame','sound'); 
+    total := sensorValue.count;
+
+/*-------LOOP paraextrair valores one by one --------*/
+    FOR i IN 1..total LOOP
+          BEGIN  
+          /* try */
+                    SELECT iot_sensor.ID INTO f_IOT_SENSOR_ID
+                            FROM iot_sensor 
+                            INNER JOIN iot_sensor_type
+                            ON iot_sensor.iot_sensor_type_id = iot_sensor_type.id
+                            WHERE iot_sensor_type_id=(select iot_sensor_type.id FROM iot_sensor_type WHERE name=sensorName(i))
+                            AND iot_sensor.iot_node_id=(select iot_node.ID FROM iot_node WHERE iot_node.mac=f_IOT_NODE_MAC);
+                            
+               INSERT INTO iot_sensor_data (iot_sensor_id, date_of_value, value) VALUES (f_IOT_SENSOR_ID ,f_DATE_OF_VALUE, sensorValue(i));
+               
+          EXCEPTION /*catch */
+
+          WHEN OTHERS THEN
+              DBMS_OUTPUT.PUT_LINE('ERROR - Name: '||sensorName(i)||' - Value: '||sensorValue(i));
+          END;
+    END LOOP;
+/*--------------- end  -------------*/
+END GET_API_sensor_VALUES;
+/
+
+
+
         
 ```
 
