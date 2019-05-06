@@ -1,9 +1,8 @@
 ### V0.0.4
 
-![Logical_4](https://user-images.githubusercontent.com/2634610/57220004-b8382700-6ff1-11e9-9a2b-1a63315b3a0c.png)
-
 ![Relational_v4](https://user-images.githubusercontent.com/2634610/57220005-b8382700-6ff1-11e9-8b7e-663c4224453d.png)
 
+![Logical_4](https://user-images.githubusercontent.com/2634610/57220004-b8382700-6ff1-11e9-9a2b-1a63315b3a0c.png)
 
 ```SQL
 
