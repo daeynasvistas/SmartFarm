@@ -1,0 +1,180 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="76692654-0401-867F-2B90-5AD223941CAC" name="iot node">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 09:45:17 UTC</createdTime>
+<generatorID>23E3EF36-B919-4B7A-7FA8-575602B9F34B</generatorID>
+<ownerDesignName>vers_4</ownerDesignName>
+<engineerTo>
+<item key="E938E8D9-454D-5E90-BE60-E74BDC6AD5C4" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="EEF8F906-9B74-B13D-C4C9-476372CE1CF9">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 09:45:17 UTC</createdTime>
+<generatorID>36B21C94-2655-1233-B6A3-12C17C363109</generatorID>
+<ownerDesignName>vers_4</ownerDesignName>
+<engineerTo>
+<item key="E938E8D9-454D-5E90-BE60-E74BDC6AD5C4" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="iot person id" id="BBCF1022-CF24-D864-AFF6-3BF29959B414">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 09:45:17 UTC</createdTime>
+<generatorID>192F20DB-4D25-2FF8-363E-1301E5526A4A</generatorID>
+<ownerDesignName>vers_4</ownerDesignName>
+<engineerTo>
+<item key="E938E8D9-454D-5E90-BE60-E74BDC6AD5C4" value="true"/>
+</engineerTo>
+<referedAttribute>D9392383-D8A6-1E4B-7CBA-914D7291C517</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>C919BD35-1350-5EFB-366F-CF59BD9A7FAE</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="model" id="8C55EE97-8AAA-E082-C541-7A9A052F2158">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 09:45:17 UTC</createdTime>
+<generatorID>23FF720D-DD9B-5D92-FFD4-0D789E7DD334</generatorID>
+<ownerDesignName>vers_4</ownerDesignName>
+<engineerTo>
+<item key="E938E8D9-454D-5E90-BE60-E74BDC6AD5C4" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>72A54B95-C866-9A6C-7738-3B9AECBFCA4F</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="firm vers" id="C5324A8C-2894-3083-7F85-11A807799258">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 09:45:17 UTC</createdTime>
+<generatorID>D35AB906-D7CD-A2C2-D72E-BB9E9132A276</generatorID>
+<ownerDesignName>vers_4</ownerDesignName>
+<engineerTo>
+<item key="E938E8D9-454D-5E90-BE60-E74BDC6AD5C4" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>BF476DC6-BF80-CD7B-62C3-D86B3932A8DB</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="mac" id="AB8347CB-B51A-5243-7169-1C79AC142EE3">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 09:45:17 UTC</createdTime>
+<generatorID>C256CE18-6123-5C7C-1770-3CB304C8319B</generatorID>
+<ownerDesignName>vers_4</ownerDesignName>
+<engineerTo>
+<item key="E938E8D9-454D-5E90-BE60-E74BDC6AD5C4" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>04D5E406-A6D1-AFCD-255E-825DB3DD0B04</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="longitude" id="89DBAF7B-C84A-2142-5618-4AFD7C0D0A43">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 09:45:17 UTC</createdTime>
+<generatorID>2839AF7C-5BDB-84EC-E2AB-16D4E0B5848F</generatorID>
+<ownerDesignName>vers_4</ownerDesignName>
+<engineerTo>
+<item key="E938E8D9-454D-5E90-BE60-E74BDC6AD5C4" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>6</dataTypeScale>
+<ownDataTypeParameters>,8,6</ownDataTypeParameters>
+</Attribute>
+<Attribute name="latitude" id="DC65FC51-F8F6-B505-D599-7F46FBC643A9">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 09:45:17 UTC</createdTime>
+<generatorID>BCECD5DA-408F-9ACE-726F-36E7D038777C</generatorID>
+<ownerDesignName>vers_4</ownerDesignName>
+<engineerTo>
+<item key="E938E8D9-454D-5E90-BE60-E74BDC6AD5C4" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>6</dataTypeScale>
+<ownDataTypeParameters>,8,6</ownDataTypeParameters>
+</Attribute>
+<Attribute name="altitude" id="4B1F10D8-331D-85C0-D3B2-15C65DA70C31">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 09:45:17 UTC</createdTime>
+<generatorID>DFBF0F66-F470-5368-2EA9-C35B1F61EAA7</generatorID>
+<ownerDesignName>vers_4</ownerDesignName>
+<engineerTo>
+<item key="E938E8D9-454D-5E90-BE60-E74BDC6AD5C4" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="has api" id="B6598746-DAD8-65BC-7FE0-F4783EBF3D70">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 09:45:17 UTC</createdTime>
+<generatorID>A41BA6AC-E176-50E6-D9C1-11BC962DF547</generatorID>
+<ownerDesignName>vers_4</ownerDesignName>
+<engineerTo>
+<item key="E938E8D9-454D-5E90-BE60-E74BDC6AD5C4" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<domain>C77050A1-8B54-D1E3-8129-BAB37BFEF59F</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ip" id="A661291D-6B38-99A4-1CE9-71025BEEDEFA">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 09:45:17 UTC</createdTime>
+<generatorID>86DE3737-9BB4-C6BF-BB37-3272F956384F</generatorID>
+<ownerDesignName>vers_4</ownerDesignName>
+<engineerTo>
+<item key="E938E8D9-454D-5E90-BE60-E74BDC6AD5C4" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>04D5E406-A6D1-AFCD-255E-825DB3DD0B04</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="EE7E3122-2623-BB3B-8301-7D96002666DE" name="iot node pk">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 09:45:17 UTC</createdTime>
+<generatorID>E968CD07-373F-CFAE-DDE6-B9668CF0E7F7</generatorID>
+<ownerDesignName>vers_4</ownerDesignName>
+<engineerTo>
+<item key="E938E8D9-454D-5E90-BE60-E74BDC6AD5C4" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>EEF8F906-9B74-B13D-C4C9-476372CE1CF9</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

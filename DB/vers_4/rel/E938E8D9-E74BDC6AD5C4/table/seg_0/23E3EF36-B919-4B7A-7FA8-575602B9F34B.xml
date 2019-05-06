@@ -1,0 +1,174 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="23E3EF36-B919-4B7A-7FA8-575602B9F34B" name="iot_node">
+<sourceDDLFile>3.ddl</sourceDDLFile>
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+<importedID>EFDBF0BE-2AB1-25B9-1377-74D062F74809</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="36B21C94-2655-1233-B6A3-12C17C363109">
+<sourceDDLFile>3.ddl</sourceDDLFile>
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+<importedID>8B36EC47-26C6-5A62-AE83-F9DEFF0E73A2</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="iot_person_id" id="C6F213D2-1F0F-03D0-F93C-6AF49D3B2838">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:40:12 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>C919BD35-1350-5EFB-366F-CF59BD9A7FAE</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2B6AB6D3-D40B-07BC-92BD-2254B2EDF3DE" referredColumn="046B5A37-769A-6086-F6F5-F2CBDBEE0F4D"/>
+</associations>
+</Column>
+<Column name="model" id="23FF720D-DD9B-5D92-FFD4-0D789E7DD334">
+<sourceDDLFile>3.ddl</sourceDDLFile>
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+<importedID>7DD1D263-6F1E-E4FC-7DDF-8DF0B7BE9558</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>72A54B95-C866-9A6C-7738-3B9AECBFCA4F</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="firm_vers" id="D35AB906-D7CD-A2C2-D72E-BB9E9132A276">
+<sourceDDLFile>3.ddl</sourceDDLFile>
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+<importedID>7B5CB71F-0EAB-4328-CFD7-8961CDFB45F7</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>BF476DC6-BF80-CD7B-62C3-D86B3932A8DB</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mac" id="C256CE18-6123-5C7C-1770-3CB304C8319B">
+<sourceDDLFile>3.ddl</sourceDDLFile>
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+<importedID>58884A99-215F-470A-4FEB-A6803104C371</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>04D5E406-A6D1-AFCD-255E-825DB3DD0B04</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="longitude" id="2839AF7C-5BDB-84EC-E2AB-16D4E0B5848F">
+<sourceDDLFile>3.ddl</sourceDDLFile>
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+<importedID>AF41D8AC-F6C7-56E3-2FB0-474ADF1960B2</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>6</dataTypeScale>
+<ownDataTypeParameters>,8,6</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="latitude" id="BCECD5DA-408F-9ACE-726F-36E7D038777C">
+<sourceDDLFile>3.ddl</sourceDDLFile>
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+<importedID>508A8C5A-C68F-085B-9676-439C4B7BC650</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>6</dataTypeScale>
+<ownDataTypeParameters>,8,6</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="altitude" id="DFBF0F66-F470-5368-2EA9-C35B1F61EAA7">
+<sourceDDLFile>3.ddl</sourceDDLFile>
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+<importedID>3A4E76DC-B939-B270-3499-99A127CD5725</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="has_api" id="A41BA6AC-E176-50E6-D9C1-11BC962DF547">
+<sourceDDLFile>3.ddl</sourceDDLFile>
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+<importedID>FD82B6BF-D293-DA35-8BEB-9684B0074CB6</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<domain>C77050A1-8B54-D1E3-8129-BAB37BFEF59F</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ip" id="86DE3737-9BB4-C6BF-BB37-3272F956384F">
+<sourceDDLFile>3.ddl</sourceDDLFile>
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+<importedID>81E2CE5B-8A03-ED14-F2D7-71F762D2C85F</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>04D5E406-A6D1-AFCD-255E-825DB3DD0B04</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E968CD07-373F-CFAE-DDE6-B9668CF0E7F7" name="iot_node_pk">
+<sourceDDLFile>3.ddl</sourceDDLFile>
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+<importedID>B9B2A3AC-CE29-B573-D80B-426B1637FE1B</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="36B21C94-2655-1233-B6A3-12C17C363109"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D977495F-6036-C523-1A0E-E7E8AB3D26B5" name="iot_node_iot_person_FK">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:40:12 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C6F213D2-1F0F-03D0-F93C-6AF49D3B2838"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="iot_sensor_data" directorySegmentName="seg_0" id="6D256ECF-9731-51A5-DBBE-F8BA4EDCC787">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="value" id="08085FD0-FB0E-8201-664E-FC5FBECA624B">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="date_of_value" id="2A66F7B0-170B-3E0C-0184-4D0CFBA5D1DD">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="latitude" id="5F80ED16-F204-5F83-E8B0-74D1E227C6AC">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="iot_sensor_id" id="8966ED5A-2413-2625-DDC0-C41340825CDD">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="id" id="A67C82CB-46AF-C277-795C-DAEB67132259">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="longitude" id="C5C9FAE2-A440-AAE6-5F88-C1DA1843BD1D">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="iot_sensor_data_iot_sensor_fk" id="DBF3A6DC-1CC1-9791-3E86-71AC77685A6E">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="iot_sensor_data_pk" id="5C6034AB-3F6C-E686-07EB-14DA85D73D3C">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

@@ -1,0 +1,186 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<DomainFile class="oracle.dbtools.crest.model.design.DomainFileWrapper" fileName="3_Domains">
+   <domains>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_0_0_0" id="0078EE54-32EC-186C-7D57-F61AF6DBCD66">
+         <createdBy>Administrator</createdBy>
+         <createdTime>2019-05-06 08:37:56 UTC</createdTime>
+         <ownerDesignName>vers_4</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <fileName>3_Domains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_20" id="04D5E406-A6D1-AFCD-255E-825DB3DD0B04">
+         <createdBy>Administrator</createdBy>
+         <createdTime>2019-05-06 08:37:56 UTC</createdTime>
+         <ownerDesignName>vers_4</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>20</dataTypeSize>
+         <fileName>3_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_8_0_0" id="157B80C4-CE4F-FE4E-A65D-28D2BFC3CB75">
+         <createdBy>Administrator</createdBy>
+         <createdTime>2019-05-06 08:37:56 UTC</createdTime>
+         <ownerDesignName>vers_4</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>8</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>0</dataTypeSize>
+         <fileName>3_Domains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_60" id="18B0A7D3-EAEB-1977-5497-FD7D9EC843D9">
+         <createdBy>Administrator</createdBy>
+         <createdTime>2019-05-06 08:37:56 UTC</createdTime>
+         <ownerDesignName>vers_4</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>60</dataTypeSize>
+         <fileName>3_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_7_0_0" id="21BFC901-A248-382A-88A8-9AF71BEB10C5">
+         <createdBy>Administrator</createdBy>
+         <createdTime>2019-05-06 08:37:56 UTC</createdTime>
+         <ownerDesignName>vers_4</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>7</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>0</dataTypeSize>
+         <fileName>3_Domains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_100" id="28197A1E-15A0-4193-4FA8-564B88A8B687">
+         <createdBy>Administrator</createdBy>
+         <createdTime>2019-05-06 08:37:56 UTC</createdTime>
+         <ownerDesignName>vers_4</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>100</dataTypeSize>
+         <fileName>3_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="FLOAT_6_0_0" id="2D99C889-813D-744B-F619-0DD7253C5C06">
+         <createdBy>Administrator</createdBy>
+         <createdTime>2019-05-06 08:37:56 UTC</createdTime>
+         <ownerDesignName>vers_4</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>6</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>0</dataTypeSize>
+         <fileName>3_Domains</fileName>
+         <logicalDatatype>LOGDT021</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NVARCHAR_0_0_80" id="49D84DF2-3416-A7B0-0666-C302B1849E51">
+         <createdBy>Administrator</createdBy>
+         <createdTime>2019-05-06 08:37:56 UTC</createdTime>
+         <ownerDesignName>vers_4</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>80</dataTypeSize>
+         <fileName>3_Domains</fileName>
+         <logicalDatatype>LOGDT037</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_25" id="72A54B95-C866-9A6C-7738-3B9AECBFCA4F">
+         <createdBy>Administrator</createdBy>
+         <createdTime>2019-05-06 08:37:56 UTC</createdTime>
+         <ownerDesignName>vers_4</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>25</dataTypeSize>
+         <fileName>3_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_50" id="99B74F31-3BDE-3C21-9016-3FA70641246E">
+         <createdBy>Administrator</createdBy>
+         <createdTime>2019-05-06 08:37:56 UTC</createdTime>
+         <ownerDesignName>vers_4</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>50</dataTypeSize>
+         <fileName>3_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="FLOAT_0_0_0" id="B63DC462-800E-00AF-C768-8C7A009998F1">
+         <createdBy>Administrator</createdBy>
+         <createdTime>2019-05-06 08:37:56 UTC</createdTime>
+         <ownerDesignName>vers_4</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <fileName>3_Domains</fileName>
+         <logicalDatatype>LOGDT021</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_8" id="BF476DC6-BF80-CD7B-62C3-D86B3932A8DB">
+         <createdBy>Administrator</createdBy>
+         <createdTime>2019-05-06 08:37:56 UTC</createdTime>
+         <ownerDesignName>vers_4</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>8</dataTypeSize>
+         <fileName>3_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_16_0_0" id="BF6BCA39-32F3-6B8D-6FD5-6008A1767AA7">
+         <createdBy>Administrator</createdBy>
+         <createdTime>2019-05-06 08:37:56 UTC</createdTime>
+         <ownerDesignName>vers_4</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>16</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>0</dataTypeSize>
+         <fileName>3_Domains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_5" id="C46A8BAE-9DFE-79F2-16B3-9C5060DF11A9">
+         <createdBy>Administrator</createdBy>
+         <createdTime>2019-05-06 08:37:56 UTC</createdTime>
+         <ownerDesignName>vers_4</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>5</dataTypeSize>
+         <fileName>3_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="CHAR_0_0_1" id="C77050A1-8B54-D1E3-8129-BAB37BFEF59F">
+         <createdBy>Administrator</createdBy>
+         <createdTime>2019-05-06 08:37:56 UTC</createdTime>
+         <ownerDesignName>vers_4</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>1</dataTypeSize>
+         <fileName>3_Domains</fileName>
+         <logicalDatatype>LOGDT025</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_80" id="C8FE830A-4DB2-374A-1D9C-1A99C0EF6AEF">
+         <createdBy>Administrator</createdBy>
+         <createdTime>2019-05-06 08:37:56 UTC</createdTime>
+         <ownerDesignName>vers_4</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>80</dataTypeSize>
+         <fileName>3_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_10_0_0" id="C919BD35-1350-5EFB-366F-CF59BD9A7FAE">
+         <createdBy>Administrator</createdBy>
+         <createdTime>2019-05-06 08:37:56 UTC</createdTime>
+         <ownerDesignName>vers_4</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>10</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>0</dataTypeSize>
+         <fileName>3_Domains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Domain>
+   </domains>
+</DomainFile>

@@ -1,0 +1,78 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="iot_node" directorySegmentName="seg_0" id="23E3EF36-B919-4B7A-7FA8-575602B9F34B">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="model" id="23FF720D-DD9B-5D92-FFD4-0D789E7DD334">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="longitude" id="2839AF7C-5BDB-84EC-E2AB-16D4E0B5848F">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="id" id="36B21C94-2655-1233-B6A3-12C17C363109">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ip" id="86DE3737-9BB4-C6BF-BB37-3272F956384F">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="has_api" id="A41BA6AC-E176-50E6-D9C1-11BC962DF547">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="latitude" id="BCECD5DA-408F-9ACE-726F-36E7D038777C">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="mac" id="C256CE18-6123-5C7C-1770-3CB304C8319B">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="iot_person_id" id="C6F213D2-1F0F-03D0-F93C-6AF49D3B2838">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:40:12 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="firm_vers" id="D35AB906-D7CD-A2C2-D72E-BB9E9132A276">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="altitude" id="DFBF0F66-F470-5368-2EA9-C35B1F61EAA7">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="iot_node_iot_person_FK" id="D977495F-6036-C523-1A0E-E7E8AB3D26B5">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:40:12 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="iot_node_pk" id="E968CD07-373F-CFAE-DDE6-B9668CF0E7F7">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

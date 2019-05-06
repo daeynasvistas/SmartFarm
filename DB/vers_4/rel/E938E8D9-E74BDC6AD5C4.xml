@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="Relational_1" id="E938E8D9-454D-5E90-BE60-E74BDC6AD5C4" mainViewID="220C92C1-A470-DD25-5E5B-EC0C15227FAC">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:34:29 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+<selectedRDBMSSite>3FD120B5-9F4E-6278-D5E2-746D192C8319</selectedRDBMSSite>
+<importDDLFileStamps>
+<importDDLFileStamp class="oracle.dbtools.crest.imports.DDLFileStamp">
+<fileName>3.ddl</fileName>
+<pathName>C:\Users\administrator\Desktop</pathName>
+<dbType>11</dbType>
+</importDDLFileStamp>
+</importDDLFileStamps>
+</relationalModel>

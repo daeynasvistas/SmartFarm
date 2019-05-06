@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="iot_sensor_iot_sensor_type_fk" directorySegmentName="seg_0" id="7F01FCCF-BDF0-774C-68F9-B3DCB0A30A8F">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 09:45:17 UTC</createdTime>
+<generatorID>61EC57F9-6029-387B-70ED-0B401B44DCE4</generatorID>
+<ownerDesignName>vers_4</ownerDesignName>
+<engineerTo>
+<item key="E938E8D9-454D-5E90-BE60-E74BDC6AD5C4" value="true"/>
+</engineerTo>
+<sourcePk>59FFFBA7-824C-4200-D9F6-40720A8FBA8E</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>43F6AE00-18FD-62DB-F0DF-51C69C5A2E1B</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>FD006A9A-D6AC-307B-C6AD-6F6D2BD7F0E7</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

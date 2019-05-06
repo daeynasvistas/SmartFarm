@@ -1,0 +1,124 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6D256ECF-9731-51A5-DBBE-F8BA4EDCC787" name="iot_sensor_data">
+<sourceDDLFile>3.ddl</sourceDDLFile>
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+<importedID>CC5EF286-5326-A533-219B-26ADE528C8D1</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="A67C82CB-46AF-C277-795C-DAEB67132259">
+<sourceDDLFile>3.ddl</sourceDDLFile>
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+<importedID>CDE03B50-A1B9-F4EC-C72E-9FD13666C53C</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>157B80C4-CE4F-FE4E-A65D-28D2BFC3CB75</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="iot_sensor_id" id="8966ED5A-2413-2625-DDC0-C41340825CDD">
+<sourceDDLFile>3.ddl</sourceDDLFile>
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+<importedID>1F2B5C05-1465-BD56-2BA7-03D5A5BB3F9D</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="38BE1539-036C-5594-8A2A-2C70CAC0915F" referredColumn="0CE41AF9-0388-AC84-7ABF-950977E4FD88"/>
+</associations>
+</Column>
+<Column name="date_of_value" id="2A66F7B0-170B-3E0C-0184-4D0CFBA5D1DD">
+<sourceDDLFile>3.ddl</sourceDDLFile>
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+<importedID>0F83F6D2-94C0-0D00-2227-D22C6D04DF1B</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>BF6BCA39-32F3-6B8D-6FD5-6008A1767AA7</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="value" id="08085FD0-FB0E-8201-664E-FC5FBECA624B">
+<sourceDDLFile>3.ddl</sourceDDLFile>
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+<importedID>03582643-DD74-71F3-56DF-F8DDF8EDAD17</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,6,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="longitude" id="C5C9FAE2-A440-AAE6-5F88-C1DA1843BD1D">
+<sourceDDLFile>3.ddl</sourceDDLFile>
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+<importedID>F507E626-D632-A5AD-4A8E-6176304BEAB2</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>6</dataTypeScale>
+<ownDataTypeParameters>,8,6</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="latitude" id="5F80ED16-F204-5F83-E8B0-74D1E227C6AC">
+<sourceDDLFile>3.ddl</sourceDDLFile>
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+<importedID>049624E1-0D86-175B-B868-FFA375D40B45</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>6</dataTypeScale>
+<ownDataTypeParameters>,8,6</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5C6034AB-3F6C-E686-07EB-14DA85D73D3C" name="iot_sensor_data_pk">
+<sourceDDLFile>3.ddl</sourceDDLFile>
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+<importedID>3F8B650D-7BE1-DF55-7EAB-0F9889CDFF94</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A67C82CB-46AF-C277-795C-DAEB67132259"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DBF3A6DC-1CC1-9791-3E86-71AC77685A6E" name="iot_sensor_data_iot_sensor_fk">
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8966ED5A-2413-2625-DDC0-C41340825CDD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

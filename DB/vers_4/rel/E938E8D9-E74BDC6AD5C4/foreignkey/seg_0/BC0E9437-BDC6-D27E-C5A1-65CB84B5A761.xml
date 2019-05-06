@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="BC0E9437-BDC6-D27E-C5A1-65CB84B5A761" containerWithKeyObject="7F34A287-1A54-A9DE-7018-F2EFB1ECCF9E" localFKIndex="5F1F96EB-FE13-FE02-34C2-E22972871BEB" name="iot_sensor_iot_node_fk">
+<sourceDDLFile>3.ddl</sourceDDLFile>
+<createdBy>Administrator</createdBy>
+<createdTime>2019-05-06 08:37:56 UTC</createdTime>
+<ownerDesignName>vers_4</ownerDesignName>
+<importedID>E4106221-E7A6-47C7-48AE-AD7B691CA929</importedID>
+<referredTableLongName>iot_node</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>23E3EF36-B919-4B7A-7FA8-575602B9F34B</referredTableID>
+<keyObject>E968CD07-373F-CFAE-DDE6-B9668CF0E7F7</keyObject>
+<referredKeyID>E968CD07-373F-CFAE-DDE6-B9668CF0E7F7</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
