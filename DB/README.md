@@ -416,7 +416,18 @@ BEGIN
 END GET_API_sensor_VALUES;
 /
 
+/*   --     JOBS for the BOYS ------------- */
+begin
+    DBMS_SCHEDULER.CREATE_JOB (
+         job_name             => 'get_API_values',
+         job_type             => 'PLSQL_BLOCK',
+         job_action           => 'GET_API_sensor_VALUES',
+         start_date           => SYSTIMESTAMP,
+         repeat_interval      => 'FREQ=MINUTELY;INTERVAL=30;',
+         enabled              => TRUE);
+end;
 
+exec DBMS_SCHEDULER.enable('get_API_values');
 
         
 ```
