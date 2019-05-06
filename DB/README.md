@@ -307,7 +307,7 @@ INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE,
                 VALUES ('GL5528',  'Photosensitive', 'detect the light intensity', date_to_unix_ts(SYSDATE),NULL, 1006, 1000);
     
 INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
-                VALUES ('GL5528',  'Photosensitive', 'detect the light intensity', date_to_unix_ts(SYSDATE),NULL, 1006, 1000);
+                VALUES ('LM393',  'UV Detector', 'detect flame', date_to_unix_ts(SYSDATE),NULL, 1007, 1000);
     
 INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
                 VALUES ('OKY3131',  'Sound Detection', 'High Sensitive Microphone', date_to_unix_ts(sysdate),NULL, 1008, 1000);
