@@ -16,6 +16,9 @@ DROP TABLE iot_sensor_data CASCADE CONSTRAINTS;
 DROP TABLE iot_sensor_type CASCADE CONSTRAINTS;
 --Versão 0.4
 DROP TABLE iot_sensor_alert CASCADE CONSTRAINTS;
+--Versão 0.5
+DROP TABLE iot_log_table CASCADE CONSTRAINTS;
+
 
 DROP SEQUENCE IOT_PERSON_SEQ;
 DROP SEQUENCE IOT_SENSOR_SEQ;
@@ -24,7 +27,19 @@ DROP SEQUENCE IOT_TYPE_SEQ;
 DROP SEQUENCE IOT_NODE_SEQ;
 --Versão 0.4
 DROP SEQUENCE IOT_ALERT_SEQ;
+--Versão 0.5
+DROP SEQUENCE IOT_LOG_SEQ;
 
+
+--Versão 0.5
+CREATE TABLE iot_log_table (
+    id           NUMBER(10) NOT NULL,
+    date_fetch   NUMBER(16),
+    error        VARCHAR2(80)
+)
+LOGGING;
+
+ALTER TABLE iot_log_table ADD CONSTRAINT iot_log_table_pk PRIMARY KEY ( id );
 
 
 CREATE TABLE iot_node (
@@ -236,6 +251,24 @@ BEGIN
 END;
 /
 
+/*----------------------  LOG ---------------------------------- */
+--Versão 0.5
+CREATE SEQUENCE IOT_log_seq
+ START WITH     1
+ INCREMENT BY   1
+ NOCACHE
+ NOCYCLE; 
+ 
+  CREATE OR REPLACE TRIGGER log_on_insert
+  BEFORE INSERT ON iot_log_table
+  FOR EACH ROW
+BEGIN
+  SELECT IOT_log_seq.nextval
+  INTO :new.id
+  FROM dual;
+END;
+/
+
 /*----------------------  END ---------------------------------- */
         
 /*ADD FUNCTION */
@@ -315,7 +348,6 @@ INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE,
     
 
 
-
 /*
 select * from iot_person;  
 select * from iot_sensor_type;  
@@ -365,6 +397,8 @@ CREATE OR REPLACE PROCEDURE GET_API_sensor_VALUES IS
     
     f_LONGITUDE     CLOB;    
     f_LATITUDE      CLOB;
+    
+  
 
 BEGIN
     v_json := bda.bda.return_web_page('http://my-json-server.typicode.com/daeynasvistas/SmartFarm/node');
@@ -393,7 +427,9 @@ BEGIN
     sensorName := sensorNameArray('air_temperature','air_humidity','air_pressure','air_CO2','air_TVOC','soil_humidity','lux','flame','sound'); 
     total := sensorValue.count;
 
-/*-------LOOP paraextrair valores one by one --------*/
+
+
+
     FOR i IN 1..total LOOP
           BEGIN  
           /* try */
@@ -412,22 +448,12 @@ BEGIN
               DBMS_OUTPUT.PUT_LINE('ERROR - Name: '||sensorName(i)||' - Value: '||sensorValue(i));
           END;
     END LOOP;
-/*--------------- end  -------------*/
+
+/* --- LOG's*/
+INSERT INTO iot_log_table (date_fetch, error) VALUES (date_to_unix_ts(SYSDATE),'none');
+COMMIT;
 END GET_API_sensor_VALUES;
 /
-
-/*   --     JOBS for the BOYS ------------- */
-begin
-    DBMS_SCHEDULER.CREATE_JOB (
-         job_name             => 'get_API_values',
-         job_type             => 'PLSQL_BLOCK',
-         job_action           => 'GET_API_sensor_VALUES',
-         start_date           => SYSTIMESTAMP,
-         repeat_interval      => 'FREQ=MINUTELY;INTERVAL=30;',
-         enabled              => TRUE);
-end;
-
-exec DBMS_SCHEDULER.enable('get_API_values');
 
         
 ```
