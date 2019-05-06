@@ -4,7 +4,7 @@
 
 ```SQL
 
----->> VERSÃO 0.4 <<------
+---->> VERSÃO 0.5 <<------
 
 
 DROP TABLE iot_node CASCADE CONSTRAINTS;
