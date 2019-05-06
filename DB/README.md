@@ -1,8 +1,9 @@
 ### V0.0.4
 
-![Relational_1](https://user-images.githubusercontent.com/2634610/56832378-b89f2800-6863-11e9-83d0-87eae160fd18.png)
+![Logical_4](https://user-images.githubusercontent.com/2634610/57220004-b8382700-6ff1-11e9-9a2b-1a63315b3a0c.png)
 
-![logic](https://user-images.githubusercontent.com/2634610/56832582-4ed34e00-6864-11e9-984a-f65a97449d98.png)
+![Relational_v4](https://user-images.githubusercontent.com/2634610/57220005-b8382700-6ff1-11e9-8b7e-663c4224453d.png)
+
 
 ```SQL
 
