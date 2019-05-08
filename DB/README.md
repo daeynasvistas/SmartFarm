@@ -367,6 +367,11 @@ PROCEDIMENTOS Vers 0.4
 /*---------------RECEBER VALORES DE UM SENSOR ESP32 -----------------------*/
 /*--------------------------------------------------------------------------*/
 CREATE OR REPLACE PROCEDURE GET_API_sensor_VALUES IS
+
+    /*Versão 2 com ARRAY JSON*/
+    totalArray INTEGER;
+
+    /*Versão 1 com JSON*/
     /*JSON stuff*/   
     v_json       CLOB;
     v_json_query CLOB;
@@ -377,6 +382,7 @@ CREATE OR REPLACE PROCEDURE GET_API_sensor_VALUES IS
     sensorValue sensorsArray;     
     sensorName sensorNameArray; 
     total INTEGER; 
+    
   
     /*MODEL: iot_sensor_data*/
     f_IOT_NODE_MAC        VARCHAR2(20);  
@@ -399,21 +405,37 @@ CREATE OR REPLACE PROCEDURE GET_API_sensor_VALUES IS
   
 
 BEGIN
-    v_json := bda.bda.return_web_page('http://my-json-server.typicode.com/daeynasvistas/SmartFarm/node');
-    --dbms_output.put_line(v_json);
-   -- f_IOT_NODE_MAC = SELECT 
+    v_json := bda.bda.return_web_page('http://my-json-server.typicode.com/daeynasvistas/SmartFarm/nodes');
+   -- dbms_output.put_line(v_json);
+   
+ /*  ------------  TEST VERSÃO 2 --ARRAY JSON ---------- */
+     SELECT JSON_QUERY(v_json, '$[0]' 
+            EMPTY ON ERROR) AS value
+           --WITH CONDITIONAL WRAPPER) AS value
+      INTO v_json_query
+      FROM DUAL;
+      dbms_output.put_line(v_json_query);
+      
+  --  SELECT JSON_VALUE(v_json_query, '$.id')
+  --    INTO v_json_value
+  --    FROM DUAL;
+  --    dbms_output.put_line(v_json_value);
+ /*  ------------  TEST VERSÃO 2 --ARRAY JSON ---------- */
+
+   
+  
    SELECT 
         date_to_unix_ts(SYSDATE), --JSON_VALUE(v_json, '$.date_of_value'),
-        JSON_VALUE(v_json, '$.id'),
-        TO_NUMBER(JSON_VALUE(v_json, '$.air_temp'), '999.99'),
-        TO_NUMBER(JSON_VALUE(v_json, '$.air_humidity'), '999.99'),
-        TO_NUMBER(JSON_VALUE(v_json, '$.air_pressure'), '9999'),
-        TO_NUMBER(JSON_VALUE(v_json, '$.air_CO2'), '9999'),
-        TO_NUMBER(JSON_VALUE(v_json, '$.air_TVOC'), '9999'),
-        TO_NUMBER(JSON_VALUE(v_json, '$.lux'), '9999'),
-        TO_NUMBER(JSON_VALUE(v_json, '$.flame'), '9999'),
-        TO_NUMBER(JSON_VALUE(v_json, '$.soil_humidity'), '9999'),
-        TO_NUMBER(JSON_VALUE(v_json, '$.sound'), '9999')
+        JSON_VALUE(v_json_query, '$.id'),
+        TO_NUMBER(JSON_VALUE(v_json_query, '$.air_temp'), '999.99'),
+        TO_NUMBER(JSON_VALUE(v_json_query, '$.air_humidity'), '999.99'),
+        TO_NUMBER(JSON_VALUE(v_json_query, '$.air_pressure'), '9999'),
+        TO_NUMBER(JSON_VALUE(v_json_query, '$.air_CO2'), '9999'),
+        TO_NUMBER(JSON_VALUE(v_json_query, '$.air_TVOC'), '9999'),
+        TO_NUMBER(JSON_VALUE(v_json_query, '$.lux'), '9999'),
+        TO_NUMBER(JSON_VALUE(v_json_query, '$.flame'), '9999'),
+        TO_NUMBER(JSON_VALUE(v_json_query, '$.soil_humidity'), '9999'),
+        TO_NUMBER(JSON_VALUE(v_json_query, '$.sound'), '9999')
     INTO 
         f_DATE_OF_VALUE,
         f_IOT_NODE_MAC,
@@ -427,10 +449,9 @@ BEGIN
 
 
 
-
     FOR i IN 1..total LOOP
           BEGIN  
-          /* try */
+          --/* try 
                     SELECT iot_sensor.ID INTO f_IOT_SENSOR_ID
                             FROM iot_sensor 
                             INNER JOIN iot_sensor_type
@@ -440,18 +461,46 @@ BEGIN
                             
                INSERT INTO iot_sensor_data (iot_sensor_id, date_of_value, value) VALUES (f_IOT_SENSOR_ID ,f_DATE_OF_VALUE, sensorValue(i));
                
-          EXCEPTION /*catch */
+          EXCEPTION --/*catch 
 
           WHEN OTHERS THEN
               DBMS_OUTPUT.PUT_LINE('ERROR - Name: '||sensorName(i)||' - Value: '||sensorValue(i));
+              INSERT INTO iot_log_table (date_fetch, error) VALUES (date_to_unix_ts(SYSDATE),'ERROR - Name: '||sensorName(i)||' - Value: '||sensorValue(i));
+
           END;
     END LOOP;
+    
+    
+    
 
 /* --- LOG's*/
 INSERT INTO iot_log_table (date_fetch, error) VALUES (date_to_unix_ts(SYSDATE),'none');
 COMMIT;
+
+
 END GET_API_sensor_VALUES;
 /
+
+
+
+
+/*   --     JOBS for the BOYS ------------- */
+begin
+    DBMS_SCHEDULER.CREATE_JOB (
+         job_name             => 'get_API_values',
+         job_type             => 'STORED_PROCEDURE',
+         job_action           => 'GET_API_sensor_VALUES',
+         start_date           => SYSTIMESTAMP,
+         repeat_interval      => 'FREQ=MINUTELY;INTERVAL=30;',
+         enabled              => TRUE);
+end;
+
+exec DBMS_SCHEDULER.enable('get_API_values');
+
+       
+
+
+
 
         
 ```
