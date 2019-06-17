@@ -1,6 +1,7 @@
-### V0.0.5
+### V0.0.7
 
-![0 5](https://user-images.githubusercontent.com/2634610/57238653-d7e74380-7021-11e9-9cc6-0850cb267dae.png)
+![Relational_1](https://user-images.githubusercontent.com/2634610/59598965-50e3bb80-90f5-11e9-82e7-a2b2e942db59.png)
+
 
 ```SQL
 
@@ -926,6 +927,16 @@ END;
 
         
 ```
+### V0.0.7
+
+![Logical](https://user-images.githubusercontent.com/2634610/59598964-50e3bb80-90f5-11e9-9a9f-622354b8ca15.png)
+
+
+### V0.0.5
+
+![0 5](https://user-images.githubusercontent.com/2634610/57238653-d7e74380-7021-11e9-9cc6-0850cb267dae.png)
+
+
 ### V0.0.4
 
 ![Relational_v4](https://user-images.githubusercontent.com/2634610/57220005-b8382700-6ff1-11e9-8b7e-663c4224453d.png)
