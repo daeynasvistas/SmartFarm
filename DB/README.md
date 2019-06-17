@@ -63,6 +63,7 @@ CREATE TABLE iot_person (
     key             VARCHAR2(60),
     secret          VARCHAR2(100),
     creation_date   NUMBER(16),
+    nonce           NUMBER(16),
     ativo           CHAR(1)
 )
 LOGGING;
