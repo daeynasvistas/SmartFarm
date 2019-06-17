@@ -58,9 +58,9 @@ ALTER TABLE iot_node ADD CONSTRAINT iot_node_pk PRIMARY KEY ( id );
 
 CREATE TABLE iot_person (
     id              NUMBER(10) NOT NULL,
-    email           VARCHAR2(50) NOT NULL,
+    email           VARCHAR2(50) UNIQUE,
     password        VARCHAR2(100) NOT NULL,
-    key             VARCHAR2(60),
+    key             VARCHAR2(60) UNIQUE,
     secret          VARCHAR2(100),
     creation_date   NUMBER(16),
     nonce           NUMBER(16),
