@@ -58,17 +58,20 @@ ALTER TABLE iot_node ADD CONSTRAINT iot_node_pk PRIMARY KEY ( id );
 
 CREATE TABLE iot_person (
     id              NUMBER(10) NOT NULL,
-    email           VARCHAR2(50) UNIQUE,
+    email           VARCHAR2(50) NOT NULL,
     password        VARCHAR2(100) NOT NULL,
-    key             VARCHAR2(60) UNIQUE,
+    key             VARCHAR2(60),
     secret          VARCHAR2(100),
     creation_date   NUMBER(16),
-    nonce           NUMBER(16),
-    ativo           CHAR(1)
+    ativo           CHAR(1),
+    nonce           NUMBER(16)
 )
 LOGGING;
 
 ALTER TABLE iot_person ADD CONSTRAINT iot_person_pk PRIMARY KEY ( id );
+ALTER TABLE iot_person ADD CONSTRAINT iot_person__un UNIQUE ( email );
+ALTER TABLE iot_person ADD CONSTRAINT iot_person__unv1 UNIQUE ( key );
+
 
 CREATE TABLE iot_sensor (
     id                   NUMBER(10) NOT NULL,
