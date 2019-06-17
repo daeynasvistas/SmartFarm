@@ -280,8 +280,33 @@ create or replace function date_to_unix_ts( PDate in date ) return number is
 begin
    l_unix_ts := ROUND(( PDate - TO_DATE('01.01.1970','dd.mm.yyyy')) * 60 * 60 * 24);
    return l_unix_ts;
-end;
+end date_to_unix_ts;
 /
+
+CREATE OR REPLACE  FUNCTION create_user (
+        v_username VARCHAR2
+    ) RETURN NUMBER IS
+        v_id users.id%TYPE;
+    BEGIN
+        INSERT INTO iot_person (
+            email,
+            key,
+            secret,
+            creation_date,
+            nonce
+        ) VALUES (
+            v_username,
+            BDA.ws_authentication.generate_key,
+            BDA.ws_authentication.generate_secret,
+            date_to_unix_ts(SYSDATE),
+            0
+        ) RETURNING id INTO v_id;
+
+        RETURN v_id;
+    END create_user;
+    /
+
+
 
 
 
