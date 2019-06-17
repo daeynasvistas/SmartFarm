@@ -314,7 +314,8 @@ CREATE OR REPLACE  FUNCTION create_user (
         
 /* DUMMY DATA
 /*add PERSON*/
-INSERT INTO iot_person (email, password) VALUES ('daniel@ept.pt','123456789'); --Versão 0.4
+// Já não funciona com HMAC
+//INSERT INTO iot_person (email, password) VALUES ('daniel@ept.pt','123456789'); --Versão 0.4 (REMOVIDO em 0.7)
 
 
 /*add IOT_TYPE*  desc iot_sensor_type;*/
