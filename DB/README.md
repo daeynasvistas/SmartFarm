@@ -991,7 +991,30 @@ BEGIN
 END request_check;
 /
 
+--------------------------------------  CRIAR REQUEST TEST ------------------------
 
+create or replace FUNCTION IOT_hmac (
+        v_username VARCHAR2,
+        v_root VARCHAR2,
+        v_id VARCHAR2,
+        v_data VARCHAR2
+                
+    ) RETURN string AS
+    
+        v_hmac_request bda.ws_authentication.hmac_request_type;
+        v_key            iot_person.key%TYPE;
+        v_secret         iot_person.secret%TYPE;
+
+    BEGIN
+        SELECT key, secret
+        INTO v_key, v_secret
+        FROM iot_person
+        WHERE iot_person.email = v_username;
+
+        v_hmac_request := bda.ws_authentication.hmac(v_root, v_id, v_data, v_secret);
+
+        RETURN '------';
+    END IOT_hmac;
 
 
 
