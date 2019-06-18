@@ -946,6 +946,50 @@ END;
 
 
 
+-----   PRCEDIMENTOS DE TEST PARA HMAC
+----------   CREATE SIGN ----------
+create or replace FUNCTION  request_check (
+        v_username VARCHAR2
+    ) RETURN BOOLEAN IS
+
+     v_hmac_request bda.ws_authentication.hmac_request_type;
+     v_nonce          iot_person.nonce%TYPE;
+     v_key            iot_person.key%TYPE;
+     v_secret         iot_person.secret%TYPE;
+     v_pos            number(9);
+     v_api_sign       VARCHAR2(88);
+     v_user_ok        BOOLEAN := false;
+BEGIN
+
+
+     
+    SELECT key, secret
+    INTO v_key, v_secret
+    FROM iot_person
+    WHERE iot_person.email = 'daniel@cenas.com';
+        
+     v_hmac_request := bda.ws_authentication.hmac('daniel@cenas.com','nodes','1015',v_secret);
+     
+     v_pos := instr(v_hmac_request.post_data,'=',-1)+1;
+     v_nonce := substr(v_hmac_request.post_data, v_pos);
+     v_api_sign := v_hmac_request.api_sign;
+
+   -- dbms_output.put_line('---------------------------------------');     
+   -- dbms_output.put_line(v_nonce);
+   -- dbms_output.put_line(v_key);   
+   -- dbms_output.put_line(v_api_sign);   
+    
+   -- dbms_output.put_line('---------------------------------------');     
+   
+        v_user_ok := bda.ws_authentication.check_hmac('daniel@cenas.com','nodes','1015', v_nonce, v_key, v_api_sign, v_secret);
+
+        IF v_user_ok = true THEN
+            dbms_output.put_line('User OK');
+        ELSE
+            dbms_output.put_line('Wrong user credentials');
+        END IF;
+END request_check;
+/
 
 
 
