@@ -1041,6 +1041,63 @@ create or replace FUNCTION IOT_hmac (
 
 
 
+
+
+----------------------------  UPDATE MANUALMENTE ----------------------------
+-- Temperatura
+UPDATE iot_sensor_data
+SET value = round(dbms_random.value(16, 23), 1) 
+WHERE iot_sensor_id = 1;
+
+-- Humidade
+UPDATE iot_sensor_data
+SET value = round(dbms_random.value(28, 55), 1) 
+WHERE iot_sensor_id = 2;
+
+-- Pressão ATM
+UPDATE iot_sensor_data
+SET value = round(dbms_random.value(980, 1030), 0) 
+WHERE iot_sensor_id = 3;
+
+--- CO2
+UPDATE iot_sensor_data
+SET value = round(dbms_random.value(380, 600), 0) 
+WHERE iot_sensor_id = 4;
+
+
+--- TVOC
+UPDATE iot_sensor_data
+SET value = round(dbms_random.value(0, 120), 0) 
+WHERE iot_sensor_id = 5;
+
+--- SOLO humidade
+UPDATE iot_sensor_data
+SET value = round(dbms_random.value(2, 100), 0) 
+WHERE iot_sensor_id = 6;
+
+--- Luminosidade
+UPDATE iot_sensor_data
+SET value = round(dbms_random.value(886, 1003), 0) 
+WHERE iot_sensor_id = 7;
+
+--- Fogo
+UPDATE iot_sensor_data
+SET value = round(dbms_random.value(10, 20), 0) 
+WHERE iot_sensor_id = 8;
+
+--- Som
+UPDATE iot_sensor_data
+SET value = round(dbms_random.value(10, 125), 0) 
+WHERE iot_sensor_id = 9;
+
+commit;
+
+select * from iot_sensor_type;
+
+select *
+from iot_sensor_data, iot_sensor
+where iot_sensor_data.iot_sensor_id = iot_sensor.id;
+
         
 ```
 ### V0.0.7
