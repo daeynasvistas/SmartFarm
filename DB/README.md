@@ -1,250 +1,456 @@
-### V0.0.7
+### V0.0.8
 
 ![Relational_1](https://user-images.githubusercontent.com/2634610/59598965-50e3bb80-90f5-11e9-82e7-a2b2e942db59.png)
 
 
 ```SQL
 
----->> VERSÃO 0.7 <<------
+---->> VERSÃO 0.8 IMPORT do SQL develop <<------
+
+--------------------------------------------------------
+--  File created - Sexta-feira-Junho-28-2019   
+--------------------------------------------------------
+DROP SEQUENCE "IOT_ALERT_SEQ";
+DROP SEQUENCE "IOT_DATA_SEQ";
+DROP SEQUENCE "IOT_LOG_SEQ";
+DROP SEQUENCE "IOT_NODE_SEQ";
+DROP SEQUENCE "IOT_PERSON_SEQ";
+DROP SEQUENCE "IOT_SENSOR_SEQ";
+DROP SEQUENCE "IOT_TYPE_SEQ";
+DROP SEQUENCE "SEQ_VENDAS";
+DROP SEQUENCE "SEQ1";
+DROP SEQUENCE "USERS_SEQ";
+DROP TABLE "ARTIGOS" cascade constraints;
+DROP TABLE "EMP" cascade constraints;
+DROP TABLE "IOT_LOG_TABLE" cascade constraints;
+DROP TABLE "IOT_NODE" cascade constraints;
+DROP TABLE "IOT_PERSON" cascade constraints;
+DROP TABLE "IOT_SENSOR" cascade constraints;
+DROP TABLE "IOT_SENSOR_ALERT" cascade constraints;
+DROP TABLE "IOT_SENSOR_DATA" cascade constraints;
+DROP TABLE "IOT_SENSOR_TYPE" cascade constraints;
+DROP TABLE "USERS" cascade constraints;
+DROP TABLE "VENDAS" cascade constraints;
+DROP VIEW "IOT_USERS";
+DROP PROCEDURE "GET_API_SENSOR_VALUES";
+DROP PROCEDURE "HMAC_REQUEST_CHECK";
+DROP PROCEDURE "SET_SINK_ALERT";
+DROP PROCEDURE "TEST_GET_API_SENSOR_VALUES";
+DROP PROCEDURE "TEST_2_GET_API_SENSOR_VALUES";
+DROP PACKAGE "REST_DEMO_IN_OUT";
+DROP PACKAGE "TEST_WS_AUTHENTICATION";
+DROP PACKAGE BODY "REST_DEMO_IN_OUT";
+DROP PACKAGE BODY "TEST_WS_AUTHENTICATION";
+DROP FUNCTION "CREATE_NONCE";
+DROP FUNCTION "CREATE_USER";
+DROP FUNCTION "DATE_TO_UNIX_TS";
+DROP FUNCTION "IOT_HMAC";
+DROP FUNCTION "REQUEST_CHECK";
+DROP FUNCTION "TEST_HMAC";
+DROP FUNCTION "UPDATE_NONCE";
+DROP FUNCTION "VENDA_ARTIGO";
+DROP SYNONYM "EMPREGADO";
+--------------------------------------------------------
+--  DDL for Sequence IOT_ALERT_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "IOT_ALERT_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 NOCACHE  NOORDER  NOCYCLE   ;
+--------------------------------------------------------
+--  DDL for Sequence IOT_DATA_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "IOT_DATA_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 75520 NOCACHE  NOORDER  NOCYCLE   ;
+--------------------------------------------------------
+--  DDL for Sequence IOT_LOG_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "IOT_LOG_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 23554 NOCACHE  NOORDER  NOCYCLE   ;
+--------------------------------------------------------
+--  DDL for Sequence IOT_NODE_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "IOT_NODE_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1083 NOCACHE  NOORDER  NOCYCLE   ;
+--------------------------------------------------------
+--  DDL for Sequence IOT_PERSON_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "IOT_PERSON_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 14 NOCACHE  NOORDER  NOCYCLE   ;
+--------------------------------------------------------
+--  DDL for Sequence IOT_SENSOR_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "IOT_SENSOR_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 10 NOCACHE  NOORDER  NOCYCLE   ;
+--------------------------------------------------------
+--  DDL for Sequence IOT_TYPE_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "IOT_TYPE_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1009 NOCACHE  NOORDER  NOCYCLE   ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_VENDAS
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "SEQ_VENDAS"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1000 CACHE 20 NOORDER  NOCYCLE   ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ1
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "SEQ1"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1000 CACHE 20 NOORDER  NOCYCLE   ;
+--------------------------------------------------------
+--  DDL for Sequence USERS_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "USERS_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 3 NOCACHE  NOORDER  NOCYCLE   ;
+--------------------------------------------------------
+--  DDL for Table ARTIGOS
+--------------------------------------------------------
+
+  CREATE TABLE "ARTIGOS" 
+   (	"ID" NUMBER(9,0), 
+	"NOME" VARCHAR2(30 BYTE), 
+	"PRECO" NUMBER(6,2), 
+	"STOCK" NUMBER(6,0) DEFAULT 1, 
+	"DATA" DATE DEFAULT sysdate
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table EMP
+--------------------------------------------------------
+
+  CREATE TABLE "EMP" 
+   (	"EMPNO" NUMBER(4,0), 
+	"ENAME" VARCHAR2(10 BYTE), 
+	"JOB" VARCHAR2(9 BYTE), 
+	"MGR" NUMBER(4,0), 
+	"HIREDATE" DATE, 
+	"SAL" NUMBER(7,2), 
+	"COMM" NUMBER(7,2), 
+	"DEPTNO" NUMBER(2,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table IOT_LOG_TABLE
+--------------------------------------------------------
+
+  CREATE TABLE "IOT_LOG_TABLE" 
+   (	"ID" NUMBER(10,0), 
+	"DATE_FETCH" NUMBER(16,0), 
+	"ERROR" VARCHAR2(80 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table IOT_NODE
+--------------------------------------------------------
+
+  CREATE TABLE "IOT_NODE" 
+   (	"ID" NUMBER(8,0), 
+	"IOT_PERSON_ID" NUMBER(10,0), 
+	"MODEL" VARCHAR2(25 BYTE), 
+	"FIRM_VERS" VARCHAR2(8 BYTE), 
+	"MAC" VARCHAR2(20 BYTE), 
+	"LONGITUDE" NUMBER(8,6), 
+	"LATITUDE" NUMBER(8,6), 
+	"ALTITUDE" NUMBER(5,0), 
+	"HAS_API" CHAR(1 BYTE), 
+	"IP" VARCHAR2(20 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table IOT_PERSON
+--------------------------------------------------------
+
+  CREATE TABLE "IOT_PERSON" 
+   (	"ID" NUMBER(10,0), 
+	"EMAIL" VARCHAR2(50 BYTE), 
+	"PASSWORD" VARCHAR2(100 BYTE), 
+	"KEY" VARCHAR2(60 BYTE), 
+	"SECRET" VARCHAR2(100 BYTE), 
+	"CREATION_DATE" NUMBER(16,0), 
+	"ATIVO" CHAR(1 BYTE), 
+	"NONCE" NUMBER(16,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table IOT_SENSOR
+--------------------------------------------------------
+
+  CREATE TABLE "IOT_SENSOR" 
+   (	"ID" NUMBER(10,0), 
+	"IOT_SENSOR_TYPE_ID" NUMBER(5,0), 
+	"IOT_NODE_ID" NUMBER(8,0), 
+	"CODE" VARCHAR2(20 BYTE), 
+	"NAME" VARCHAR2(20 BYTE), 
+	"DESCRIPTION" VARCHAR2(80 BYTE), 
+	"DATE_INSTALLED" NUMBER(16,0), 
+	"DATE_TERMINATE" NUMBER(16,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table IOT_SENSOR_ALERT
+--------------------------------------------------------
+
+  CREATE TABLE "IOT_SENSOR_ALERT" 
+   (	"ID" NUMBER(10,0), 
+	"IOT_SENSOR_ID" NUMBER(10,0), 
+	"DATE_ALERT" NUMBER(16,0), 
+	"DESCRIPTION" VARCHAR2(80 BYTE), 
+	"ALERT_SEND" CHAR(1 BYTE)
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table IOT_SENSOR_DATA
+--------------------------------------------------------
+
+  CREATE TABLE "IOT_SENSOR_DATA" 
+   (	"ID" NUMBER(8,0), 
+	"IOT_SENSOR_ID" NUMBER(10,0), 
+	"DATE_OF_VALUE" NUMBER(16,0), 
+	"VALUE" NUMBER(6,2), 
+	"LONGITUDE" NUMBER(8,6), 
+	"LATITUDE" NUMBER(8,6)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table IOT_SENSOR_TYPE
+--------------------------------------------------------
+
+  CREATE TABLE "IOT_SENSOR_TYPE" 
+   (	"ID" NUMBER(5,0), 
+	"NAME" VARCHAR2(20 BYTE), 
+	"UNIT" VARCHAR2(5 BYTE), 
+	"DESCRIPTION" VARCHAR2(80 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table USERS
+--------------------------------------------------------
+
+  CREATE TABLE "USERS" 
+   (	"ID" NUMBER(9,0) GENERATED ALWAYS AS IDENTITY MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE , 
+	"USERNAME" VARCHAR2(20 BYTE), 
+	"KEY" VARCHAR2(56 BYTE), 
+	"SECRET" VARCHAR2(88 BYTE), 
+	"CREATION_DATE" NUMBER(16,0), 
+	"NONCE" NUMBER(16,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table VENDAS
+--------------------------------------------------------
+
+  CREATE TABLE "VENDAS" 
+   (	"ID" NUMBER(9,0), 
+	"ARTIGO" NUMBER(2,0), 
+	"QT" NUMBER(2,0), 
+	"DATA" DATE DEFAULT sysdate, 
+	"TOTAL" NUMBER(7,2)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for View IOT_USERS
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE EDITIONABLE VIEW "IOT_USERS" ("EMAIL") AS 
+  SELECT email
+    
+FROM iot_person
+;
 
 
-DROP TABLE iot_node CASCADE CONSTRAINTS;
-DROP TABLE iot_person CASCADE CONSTRAINTS;
-DROP TABLE iot_sensor CASCADE CONSTRAINTS;
-DROP TABLE iot_sensor_data CASCADE CONSTRAINTS;
-DROP TABLE iot_sensor_type CASCADE CONSTRAINTS;
---Versão 0.4
-DROP TABLE iot_sensor_alert CASCADE CONSTRAINTS;
---Versão 0.5
-DROP TABLE iot_log_table CASCADE CONSTRAINTS;
+Insert into IOT_NODE (ID,IOT_PERSON_ID,MODEL,FIRM_VERS,MAC,LONGITUDE,LATITUDE,ALTITUDE,HAS_API,IP) values ('1040','9','ESP32-LORA (Android)','0.1','1AA11110123','-7,125455','40,451244','1000','1','192.168.1.180');
+Insert into IOT_NODE (ID,IOT_PERSON_ID,MODEL,FIRM_VERS,MAC,LONGITUDE,LATITUDE,ALTITUDE,HAS_API,IP) values ('1068','9','mais lora cenas','0.1','mais lora cenas','0','0','0','0','000.000.000.000');
+Insert into IOT_NODE (ID,IOT_PERSON_ID,MODEL,FIRM_VERS,MAC,LONGITUDE,LATITUDE,ALTITUDE,HAS_API,IP) values ('1044','9','ESP32-LORA (Android)','0.1','1ZZ11110123','-7,125455','40,451244','1000','0','192.168.000.000');
+Insert into IOT_NODE (ID,IOT_PERSON_ID,MODEL,FIRM_VERS,MAC,LONGITUDE,LATITUDE,ALTITUDE,HAS_API,IP) values ('1056','9','cenas lora','0.1','cenas lora','0','0','0','0','000.000.000.000');
+Insert into IOT_NODE (ID,IOT_PERSON_ID,MODEL,FIRM_VERS,MAC,LONGITUDE,LATITUDE,ALTITUDE,HAS_API,IP) values ('1069','1','cenas','0.1','cenas','0','0','0','0','000.000.000.000');
+Insert into IOT_NODE (ID,IOT_PERSON_ID,MODEL,FIRM_VERS,MAC,LONGITUDE,LATITUDE,ALTITUDE,HAS_API,IP) values ('1082','1','ARDUINO UNO','0.1','ARDUINO UNO','0','0','0','0','000.000.000.000');
+Insert into IOT_NODE (ID,IOT_PERSON_ID,MODEL,FIRM_VERS,MAC,LONGITUDE,LATITUDE,ALTITUDE,HAS_API,IP) values ('1000','1','ESP32 Lora','0.1','1A0000000','-7,354986','40,777083','1090','0','192.000.000.000');
+Insert into IOT_NODE (ID,IOT_PERSON_ID,MODEL,FIRM_VERS,MAC,LONGITUDE,LATITUDE,ALTITUDE,HAS_API,IP) values ('1006','1','New ESP32 (change)','0.2','1B11111111','-7,215487','40,125413','355','0','192.168.1.2');
+Insert into IOT_NODE (ID,IOT_PERSON_ID,MODEL,FIRM_VERS,MAC,LONGITUDE,LATITUDE,ALTITUDE,HAS_API,IP) values ('1007','1','ESP32-LORA (Android)','0.1','1AA00000123','-7,125455','40,451244','1000','0','192.168.000.000');
+Insert into IOT_NODE (ID,IOT_PERSON_ID,MODEL,FIRM_VERS,MAC,LONGITUDE,LATITUDE,ALTITUDE,HAS_API,IP) values ('1008','1','ESP32-LORA (Android)','0.1','1AA00000123','-7,125455','40,451244','1000','0','192.168.000.000');
+Insert into IOT_NODE (ID,IOT_PERSON_ID,MODEL,FIRM_VERS,MAC,LONGITUDE,LATITUDE,ALTITUDE,HAS_API,IP) values ('1009','1','ESP32-LORA (Android)','0.1','1AA00000123','-7,125455','40,451244','1000','0','192.168.000.000');
+Insert into IOT_NODE (ID,IOT_PERSON_ID,MODEL,FIRM_VERS,MAC,LONGITUDE,LATITUDE,ALTITUDE,HAS_API,IP) values ('1010','1','ESP32-LORA (Android)','0.1','1AA11110123','-7,125455','40,451244','1000','0','192.168.000.000');
+Insert into IOT_NODE (ID,IOT_PERSON_ID,MODEL,FIRM_VERS,MAC,LONGITUDE,LATITUDE,ALTITUDE,HAS_API,IP) values ('1011','1','ESP32-LORA (Android)','0.1','1AA11110123','-7,125455','40,451244','1000','0','192.168.000.000');
+Insert into IOT_NODE (ID,IOT_PERSON_ID,MODEL,FIRM_VERS,MAC,LONGITUDE,LATITUDE,ALTITUDE,HAS_API,IP) values ('1015','1','ESP32-LORA (Android)','0.1','1AA11110123','-7,125455','40,451244','1000','0','192.168.000.000');
+REM INSERTING into IOT_PERSON
+SET DEFINE OFF;
+Insert into IOT_PERSON (ID,EMAIL,PASSWORD,KEY,SECRET,CREATION_DATE,ATIVO,NONCE) values ('10','Daniel@maiscenas.com',null,'Njg4OTVBMEY2NEVCMDBBNUY0MTFCNjQxM0VGOTNBRkFEQjJBQTEwNA==','Qzc0Q0FCQTJERTM0NTgwNEE2QkE3OUIzQzUyQTVGRUFCQTI0ODkwRDc3MTRDQUYwMDkwODNERTMwREJEQUFCOQ==','1560774664','1','0');
+Insert into IOT_PERSON (ID,EMAIL,PASSWORD,KEY,SECRET,CREATION_DATE,ATIVO,NONCE) values ('12','Daniel@maiscenasHMAC.com',null,'RTQ4QzlBNjJFNjBDMUU4MTY3MUVFQ0YzMDVDQjMyMEZDQkI3Q0JFNg==','QzEyNTE0MDA5MDk0RjY0RTIzNDczN0VCNUREMjdCOUZFMkVBMEU3OTREMEE2RkM1OEU5MzMyOTI2Mjc1RTU3MA==','1560774832','1','0');
+Insert into IOT_PERSON (ID,EMAIL,PASSWORD,KEY,SECRET,CREATION_DATE,ATIVO,NONCE) values ('8','daniel@gmail.com',null,'RThCQjNDOEJEMjlBNzNCMEE0REQ3MUY3OUJGRDY5NjNBMEZFMjYxMQ==','NUQ3MzFBOTRDQTg3RkREQ0E5Qjk0NTc3ODYwODIyMDJCMTQ2RURFNTI1MjdBOEI2MTkxQjM1RjczQTIzQjhERA==','1560771162','1','0');
+Insert into IOT_PERSON (ID,EMAIL,PASSWORD,KEY,SECRET,CREATION_DATE,ATIVO,NONCE) values ('9','daniel@cenas.com',null,null,'==',null,'1','0');
+Insert into IOT_PERSON (ID,EMAIL,PASSWORD,KEY,SECRET,CREATION_DATE,ATIVO,NONCE) values ('13','Daniel@muitomaisHMAC.com',null,'OUU0MkZCMDU1OUQ1RTAyOTIyQzc3NzFCMkQ4RkY0NTgwNTZDNDVEMQ==','RTY1QUE0NTQ0QTk0M0M0M0E5OUY0MzUwREM5M0MyMDk1OTg3NjhDMzhDM0I2OUM4MUNGMDQzRDc2NDIwMTZGNQ==','1561377202','1','0');
+Insert into IOT_PERSON (ID,EMAIL,PASSWORD,KEY,SECRET,CREATION_DATE,ATIVO,NONCE) values ('1','daniel@ept.pt',null,'RTlCRjMzMjBDQjNFNDc0QjNBNTEzNkVCODIyMTQwM0RBMjVFNzAyNQ==','Mjg2OTY3QTI4ODE1QjgzRTYyMDZGNzcwNjlGMzMzRkU4NDBFQUVCRDU0ODlCODBFNzQ5ODQ5NkYxODk2RTk0RA==','1560774541','1','1561722057735000');
+REM INSERTING into IOT_SENSOR
+SET DEFINE OFF;
+Insert into IOT_SENSOR (ID,IOT_SENSOR_TYPE_ID,IOT_NODE_ID,CODE,NAME,DESCRIPTION,DATE_INSTALLED,DATE_TERMINATE) values ('1','1000','1000','BME280','Digital Sensor','Temperature, Humidity, Atmospheric Pressure','1557162015',null);
+Insert into IOT_SENSOR (ID,IOT_SENSOR_TYPE_ID,IOT_NODE_ID,CODE,NAME,DESCRIPTION,DATE_INSTALLED,DATE_TERMINATE) values ('2','1001','1000','BME280','Digital Sensor','Temperature, Humidity, Atmospheric Pressure','1557162015',null);
+Insert into IOT_SENSOR (ID,IOT_SENSOR_TYPE_ID,IOT_NODE_ID,CODE,NAME,DESCRIPTION,DATE_INSTALLED,DATE_TERMINATE) values ('3','1002','1000','BME280','Digital Sensor','Temperature, Humidity, Atmospheric Pressure','1557162016',null);
+Insert into IOT_SENSOR (ID,IOT_SENSOR_TYPE_ID,IOT_NODE_ID,CODE,NAME,DESCRIPTION,DATE_INSTALLED,DATE_TERMINATE) values ('4','1003','1000','CCS811','Air Mass Sensor','NTC CO2 eCO2 TVOC Air Mass Sensor','1557162016',null);
+Insert into IOT_SENSOR (ID,IOT_SENSOR_TYPE_ID,IOT_NODE_ID,CODE,NAME,DESCRIPTION,DATE_INSTALLED,DATE_TERMINATE) values ('5','1004','1000','CCS811','Air Mass Sensor','NTC CO2 eCO2 TVOC Air Mass Sensor','1557162017',null);
+Insert into IOT_SENSOR (ID,IOT_SENSOR_TYPE_ID,IOT_NODE_ID,CODE,NAME,DESCRIPTION,DATE_INSTALLED,DATE_TERMINATE) values ('6','1005','1000','YL-38','Soil Hygrometer','Detection Module Moisture Sensor','1557162017',null);
+Insert into IOT_SENSOR (ID,IOT_SENSOR_TYPE_ID,IOT_NODE_ID,CODE,NAME,DESCRIPTION,DATE_INSTALLED,DATE_TERMINATE) values ('7','1006','1000','GL5528','Photosensitive','detect the light intensity','1557162017',null);
+Insert into IOT_SENSOR (ID,IOT_SENSOR_TYPE_ID,IOT_NODE_ID,CODE,NAME,DESCRIPTION,DATE_INSTALLED,DATE_TERMINATE) values ('8','1007','1000','LM393','UV Detector','detect flame','1557162018',null);
+Insert into IOT_SENSOR (ID,IOT_SENSOR_TYPE_ID,IOT_NODE_ID,CODE,NAME,DESCRIPTION,DATE_INSTALLED,DATE_TERMINATE) values ('9','1008','1000','OKY3131','Sound Detection','High Sensitive Microphone','1557162018',null);
+REM INSERTING into IOT_SENSOR_ALERT
+SET DEFINE OFF;
+REM INSERTING into IOT_SENSOR_DATA
+SET DEFINE OFF;
 
+Insert into IOT_SENSOR_TYPE (ID,NAME,UNIT,DESCRIPTION) values ('1000','air_temperature','C','Temperatura ambiente');
+Insert into IOT_SENSOR_TYPE (ID,NAME,UNIT,DESCRIPTION) values ('1001','air_humidity','%','Humidade ambiente');
+Insert into IOT_SENSOR_TYPE (ID,NAME,UNIT,DESCRIPTION) values ('1002','air_pressure','atm','Press�o atmosf�rica');
+Insert into IOT_SENSOR_TYPE (ID,NAME,UNIT,DESCRIPTION) values ('1003','air_CO2','ppm','Concentra��o Di�xido de Carbono');
+Insert into IOT_SENSOR_TYPE (ID,NAME,UNIT,DESCRIPTION) values ('1004','air_TVOC','mg/m3','Compostos Org�nicos Vol�teis');
+Insert into IOT_SENSOR_TYPE (ID,NAME,UNIT,DESCRIPTION) values ('1005','soil_humidity','%','Humidade do solo');
+Insert into IOT_SENSOR_TYPE (ID,NAME,UNIT,DESCRIPTION) values ('1006','lux','Lux','Luminosidade');
+Insert into IOT_SENSOR_TYPE (ID,NAME,UNIT,DESCRIPTION) values ('1007','flame','UV','Dete��o de chama');
+Insert into IOT_SENSOR_TYPE (ID,NAME,UNIT,DESCRIPTION) values ('1008','sound','dB','Som Ambiente');
 
-DROP SEQUENCE IOT_PERSON_SEQ;
-DROP SEQUENCE IOT_SENSOR_SEQ;
-DROP SEQUENCE IOT_DATA_SEQ;
-DROP SEQUENCE IOT_TYPE_SEQ;
-DROP SEQUENCE IOT_NODE_SEQ;
---Versão 0.4
-DROP SEQUENCE IOT_ALERT_SEQ;
---Versão 0.5
-DROP SEQUENCE IOT_LOG_SEQ;
+--------------------------------------------------------
+--  DDL for Index IOT_SENSOR_TYPE_PK
+--------------------------------------------------------
 
+  CREATE UNIQUE INDEX "IOT_SENSOR_TYPE_PK" ON "IOT_SENSOR_TYPE" ("ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index IOT_PERSON_KEY
+--------------------------------------------------------
 
---Versão 0.5
-CREATE TABLE iot_log_table (
-    id           NUMBER(10) NOT NULL,
-    date_fetch   NUMBER(16),
-    error        VARCHAR2(80)
-)
-LOGGING;
+  CREATE UNIQUE INDEX "IOT_PERSON_KEY" ON "IOT_PERSON" ("KEY") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index IOT_SENSOR_DATA_PK
+--------------------------------------------------------
 
-ALTER TABLE iot_log_table ADD CONSTRAINT iot_log_table_pk PRIMARY KEY ( id );
+  CREATE UNIQUE INDEX "IOT_SENSOR_DATA_PK" ON "IOT_SENSOR_DATA" ("ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
 
+--------------------------------------------------------
+--  DDL for Index IOT_SENSOR_ALERT_PK
+--------------------------------------------------------
 
-CREATE TABLE iot_node (
-    id              NUMBER(8) NOT NULL,
-    iot_person_id   NUMBER(10) NOT NULL,
-    model           VARCHAR2(25),
-    firm_vers       VARCHAR2(8),
-    mac             VARCHAR2(20),
-    longitude       NUMBER(8, 6),
-    latitude        NUMBER(8, 6),
-    altitude        NUMBER(5),
-    has_api         CHAR(1),
-    ip              VARCHAR2(20)
-)
-LOGGING;
+  CREATE UNIQUE INDEX "IOT_SENSOR_ALERT_PK" ON "IOT_SENSOR_ALERT" ("ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index IOT_NODE_PK
+--------------------------------------------------------
 
-ALTER TABLE iot_node ADD CONSTRAINT iot_node_pk PRIMARY KEY ( id );
+  CREATE UNIQUE INDEX "IOT_NODE_PK" ON "IOT_NODE" ("ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
 
-CREATE TABLE iot_person (
-    id              NUMBER(10) NOT NULL,
-    email           VARCHAR2(50) NOT NULL,
-    password        VARCHAR2(100) NOT NULL,
-    key             VARCHAR2(60),
-    secret          VARCHAR2(100),
-    creation_date   NUMBER(16),
-    ativo           CHAR(1),
-    nonce           NUMBER(16)
-)
-LOGGING;
+--------------------------------------------------------
+--  DDL for Index IOT_PERSON_PK
+--------------------------------------------------------
 
-ALTER TABLE iot_person ADD CONSTRAINT iot_person_pk PRIMARY KEY ( id );
-ALTER TABLE iot_person ADD CONSTRAINT iot_person__un UNIQUE ( email );
-ALTER TABLE iot_person ADD CONSTRAINT iot_person__unv1 UNIQUE ( key );
+  CREATE UNIQUE INDEX "IOT_PERSON_PK" ON "IOT_PERSON" ("ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index IOT_PERSON_EMAIL
+--------------------------------------------------------
 
+  CREATE UNIQUE INDEX "IOT_PERSON_EMAIL" ON "IOT_PERSON" ("EMAIL") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
 
-CREATE TABLE iot_sensor (
-    id                   NUMBER(10) NOT NULL,
-    iot_sensor_type_id   NUMBER(5) NOT NULL,
-    iot_node_id          NUMBER(8) NOT NULL,
-    code                 VARCHAR2(20),
-    name                 VARCHAR2(20),
-    description          VARCHAR2(80),
-    date_installed       NUMBER(16),
-    date_terminate       NUMBER(16)
-)
-LOGGING;
+--------------------------------------------------------
+--  DDL for Index IOT_LOG_TABLE_PK
+--------------------------------------------------------
 
-ALTER TABLE iot_sensor ADD CONSTRAINT iot_sensor_pk PRIMARY KEY ( id );
+  CREATE UNIQUE INDEX "IOT_LOG_TABLE_PK" ON "IOT_LOG_TABLE" ("ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index IOT_SENSOR_PK
+--------------------------------------------------------
 
-CREATE TABLE iot_sensor_alert (
-    id              NUMBER(10) NOT NULL,
-    iot_sensor_id   NUMBER(10) NOT NULL,
-    date_alert      NUMBER(16),
-    description     VARCHAR2(80),
-    alert_send      CHAR(1)
-)
-LOGGING;
+  CREATE UNIQUE INDEX "IOT_SENSOR_PK" ON "IOT_SENSOR" ("ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Trigger ALERT_ON_INSERT
+--------------------------------------------------------
 
-ALTER TABLE iot_sensor_alert ADD CONSTRAINT iot_sensor_alert_pk PRIMARY KEY ( id );
-
-CREATE TABLE iot_sensor_data (
-    id              NUMBER(8) NOT NULL,
-    iot_sensor_id   NUMBER(10) NOT NULL,
-    date_of_value   NUMBER(16),
-    value           NUMBER(6, 2),
-    longitude       NUMBER(8, 6),
-    latitude        NUMBER(8, 6)
-)
-LOGGING;
-
-ALTER TABLE iot_sensor_data ADD CONSTRAINT iot_sensor_data_pk PRIMARY KEY ( id );
-
-CREATE TABLE iot_sensor_type (
-    id            NUMBER(5) NOT NULL,
-    name          VARCHAR2(20),
-    unit          VARCHAR2(5),
-    description   VARCHAR2(80)
-)
-LOGGING;
-
-ALTER TABLE iot_sensor_type ADD CONSTRAINT iot_sensor_type_pk PRIMARY KEY ( id );
-
-ALTER TABLE iot_node
-    ADD CONSTRAINT iot_node_iot_person_fk FOREIGN KEY ( iot_person_id )
-        REFERENCES iot_person ( id )
-    NOT DEFERRABLE;
-
-ALTER TABLE iot_sensor_alert
-    ADD CONSTRAINT iot_sensor_alert_iot_sensor_fk FOREIGN KEY ( iot_sensor_id )
-        REFERENCES iot_sensor ( id )
-    NOT DEFERRABLE;
-
-ALTER TABLE iot_sensor_data
-    ADD CONSTRAINT iot_sensor_data_iot_sensor_fk FOREIGN KEY ( iot_sensor_id )
-        REFERENCES iot_sensor ( id )
-    NOT DEFERRABLE;
-
-ALTER TABLE iot_sensor
-    ADD CONSTRAINT iot_sensor_iot_node_fk FOREIGN KEY ( iot_node_id )
-        REFERENCES iot_node ( id )
-    NOT DEFERRABLE;
-
-ALTER TABLE iot_sensor
-    ADD CONSTRAINT iot_sensor_iot_sensor_type_fk FOREIGN KEY ( iot_sensor_type_id )
-        REFERENCES iot_sensor_type ( id )
-    NOT DEFERRABLE;
-
-
-
-/* SEQUENCE para auto incrementar*/
-/*----------------------  PERSON ---------------------------------- */
-CREATE SEQUENCE IOT_person_seq
- START WITH     1
- INCREMENT BY   1
- NOCACHE
- NOCYCLE;
- 
- CREATE OR REPLACE TRIGGER person_on_insert
-  BEFORE INSERT ON iot_person
-  FOR EACH ROW
-BEGIN
-  SELECT IOT_person_seq.nextval
-  INTO :new.id
-  FROM dual;
-END;
-/
-
-/*----------------------  SENSOR ---------------------------------- */
-CREATE SEQUENCE IOT_sensor_seq
- START WITH     1
- INCREMENT BY   1
- NOCACHE
- NOCYCLE;
- 
- CREATE OR REPLACE TRIGGER sensor_on_insert
-  BEFORE INSERT ON iot_sensor
-  FOR EACH ROW
-BEGIN
-  SELECT IOT_sensor_seq.nextval
-  INTO :new.id
-  FROM dual;
-END;
-/
-
-/*----------------------  DATA ---------------------------------- */
-CREATE SEQUENCE IOT_data_seq
- START WITH     1000
- INCREMENT BY   1
- NOCACHE
- NOCYCLE;
- 
- 
-  CREATE OR REPLACE TRIGGER data_on_insert
-  BEFORE INSERT ON iot_sensor_data
-  FOR EACH ROW
-BEGIN
-  SELECT IOT_data_seq.nextval
-  INTO :new.id
-  FROM dual;
-END;
-/
-
-/*----------------------  TYPE ---------------------------------- */
-CREATE SEQUENCE IOT_type_seq
- START WITH     1000
- INCREMENT BY   1
- NOCACHE
- NOCYCLE;
- 
- 
-  CREATE OR REPLACE TRIGGER type_on_insert
-  BEFORE INSERT ON iot_sensor_type
-  FOR EACH ROW
-BEGIN
-  SELECT IOT_type_seq.nextval
-  INTO :new.id
-  FROM dual;
-END;
-/
-
-/*----------------------  NODE ---------------------------------- */
-CREATE SEQUENCE IOT_node_seq
- START WITH     1000
- INCREMENT BY   1
- NOCACHE
- NOCYCLE; 
- 
-  CREATE OR REPLACE TRIGGER node_on_insert
-  BEFORE INSERT ON iot_node
-  FOR EACH ROW
-BEGIN
-  SELECT IOT_node_seq.nextval
-  INTO :new.id
-  FROM dual;
-END;
-/
-
-/*----------------------  ALERT ---------------------------------- */
---Versão 0.4
-CREATE SEQUENCE IOT_alert_seq
- START WITH     1
- INCREMENT BY   1
- NOCACHE
- NOCYCLE; 
- 
-  CREATE OR REPLACE TRIGGER alert_on_insert
+  CREATE OR REPLACE EDITIONABLE TRIGGER "ALERT_ON_INSERT" 
   BEFORE INSERT ON iot_sensor_alert
   FOR EACH ROW
 BEGIN
@@ -252,17 +458,29 @@ BEGIN
   INTO :new.id
   FROM dual;
 END;
-/
 
-/*----------------------  LOG ---------------------------------- */
---Versão 0.5
-CREATE SEQUENCE IOT_log_seq
- START WITH     1
- INCREMENT BY   1
- NOCACHE
- NOCYCLE; 
- 
-  CREATE OR REPLACE TRIGGER log_on_insert
+/
+ALTER TRIGGER "ALERT_ON_INSERT" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger DATA_ON_INSERT
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "DATA_ON_INSERT" 
+  BEFORE INSERT ON iot_sensor_data
+  FOR EACH ROW
+BEGIN
+  SELECT IOT_data_seq.nextval
+  INTO :new.id
+  FROM dual;
+END;
+
+/
+ALTER TRIGGER "DATA_ON_INSERT" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger LOG_ON_INSERT
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "LOG_ON_INSERT" 
   BEFORE INSERT ON iot_log_table
   FOR EACH ROW
 BEGIN
@@ -270,20 +488,529 @@ BEGIN
   INTO :new.id
   FROM dual;
 END;
-/
 
-/*----------------------  END ---------------------------------- */
-        
-/*ADD FUNCTION */
-create or replace function date_to_unix_ts( PDate in date ) return number is
-   l_unix_ts number;
-begin
-   l_unix_ts := ROUND(( PDate - TO_DATE('01.01.1970','dd.mm.yyyy')) * 60 * 60 * 24);
-   return l_unix_ts;
-end date_to_unix_ts;
 /
+ALTER TRIGGER "LOG_ON_INSERT" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger NODE_ON_INSERT
+--------------------------------------------------------
 
-CREATE OR REPLACE  FUNCTION create_user (
+  CREATE OR REPLACE EDITIONABLE TRIGGER "NODE_ON_INSERT" 
+  BEFORE INSERT ON iot_node
+  FOR EACH ROW
+BEGIN
+  SELECT IOT_node_seq.nextval
+  INTO :new.id
+  FROM dual;
+END;
+
+/
+ALTER TRIGGER "NODE_ON_INSERT" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger PERSON_ON_INSERT
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "PERSON_ON_INSERT" 
+  BEFORE INSERT ON iot_person
+  FOR EACH ROW
+BEGIN
+  SELECT IOT_person_seq.nextval
+  INTO :new.id
+  FROM dual;
+END;
+
+/
+ALTER TRIGGER "PERSON_ON_INSERT" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger SENSOR_ON_INSERT
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "SENSOR_ON_INSERT" 
+  BEFORE INSERT ON iot_sensor
+  FOR EACH ROW
+BEGIN
+  SELECT IOT_sensor_seq.nextval
+  INTO :new.id
+  FROM dual;
+END;
+
+/
+ALTER TRIGGER "SENSOR_ON_INSERT" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger TYPE_ON_INSERT
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "TYPE_ON_INSERT" 
+  BEFORE INSERT ON iot_sensor_type
+  FOR EACH ROW
+BEGIN
+  SELECT IOT_type_seq.nextval
+  INTO :new.id
+  FROM dual;
+END;
+
+/
+ALTER TRIGGER "TYPE_ON_INSERT" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger USER_ON_INSERT
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "USER_ON_INSERT" 
+  BEFORE INSERT ON users
+  FOR EACH ROW
+BEGIN
+  SELECT USERS_SEQ.nextval
+  INTO :new.id
+  FROM dual;
+END;
+/
+ALTER TRIGGER "USER_ON_INSERT" ENABLE;
+
+--------------------------------------------------------
+--  DDL for Procedure GET_API_SENSOR_VALUES
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "GET_API_SENSOR_VALUES" IS
+
+    /*Vers�o 2 com ARRAY JSON*/
+    totalArray INTEGER;
+
+
+    /*Vers�o 1 com JSON*/
+    /*JSON stuff*/   
+    v_json       CLOB;
+    v_json_query CLOB;
+    v_json_value CLOB;
+    /*Multiplos valores de sensores no mesmonode*/   
+    type sensorsArray IS VARRAY(9) OF NUMBER(6,2); 
+    type sensorNameArray IS VARRAY(9) OF VARCHAR2(20);
+    sensorValue sensorsArray;     
+    sensorName sensorNameArray; 
+    total INTEGER; 
+
+
+    /*MODEL: iot_sensor_data*/
+    f_IOT_NODE_MAC        VARCHAR2(20);  
+    f_IOT_SENSOR_ID       NUMBER(8);
+    f_DATE_OF_VALUE       NUMBER(16,0);
+
+    f_VALUE_air_temp      NUMBER(6,2);
+    f_VALUE_air_humidity  NUMBER(6,2);    
+    f_VALUE_air_pressure  NUMBER(6,2);
+    f_VALUE_air_CO2       NUMBER(6,2);    
+    f_VALUE_air_TVOC      NUMBER(6,2);
+    f_VALUE_lux           NUMBER(6,2);    
+    f_VALUE_flame         NUMBER(6,2);   
+    f_VALUE_soil_humidity NUMBER(6,2);    
+    f_VALUE_sound         NUMBER(6,2);
+
+    f_LONGITUDE     CLOB;    
+    f_LATITUDE      CLOB;
+
+
+
+BEGIN
+    v_json := bda.bda.return_web_page('http://my-json-server.typicode.com/daeynasvistas/Smart-IOT/nodes');
+   -- dbms_output.put_line(v_json);
+
+
+-- START PRIMEIRO LOOP dividir ARRAY de JSON  
+-- Problemas com loop -- fixar 0--3
+--FOR j IN 0..3 LOOP
+
+     SELECT JSON_QUERY(v_json, '$['j']' 
+            WITH CONDITIONAL WRAPPER EMPTY ON ERROR ) AS value
+      INTO v_json_query  FROM DUAL;
+
+ /*  ------------  TEST VERS�O 2 --ARRAY JSON ---------- */      
+  --  SELECT JSON_VALUE(v_json_query, '$.id')
+  --    INTO v_json_value
+  --    FROM DUAL;
+  --    dbms_output.put_line(v_json_value);
+           SELECT 
+                date_to_unix_ts(SYSDATE), --JSON_VALUE(v_json, '$.date_of_value'),
+                JSON_VALUE(v_json_query, '$.id'),
+                TO_NUMBER(JSON_VALUE(v_json_query, '$.air_temp'), '999.99'),
+                TO_NUMBER(JSON_VALUE(v_json_query, '$.air_humidity'), '999.99'),
+                TO_NUMBER(JSON_VALUE(v_json_query, '$.air_pressure'), '9999'),
+                TO_NUMBER(JSON_VALUE(v_json_query, '$.air_CO2'), '9999'),
+                TO_NUMBER(JSON_VALUE(v_json_query, '$.air_TVOC'), '9999'),
+                TO_NUMBER(JSON_VALUE(v_json_query, '$.lux'), '9999'),
+                TO_NUMBER(JSON_VALUE(v_json_query, '$.flame'), '9999'),
+                TO_NUMBER(JSON_VALUE(v_json_query, '$.soil_humidity'), '9999'),
+                TO_NUMBER(JSON_VALUE(v_json_query, '$.sound'), '9999')
+            INTO 
+                f_DATE_OF_VALUE,
+                f_IOT_NODE_MAC,
+                f_VALUE_air_temp,f_VALUE_air_humidity,f_VALUE_air_pressure,f_VALUE_air_CO2,f_VALUE_air_TVOC,f_VALUE_lux,f_VALUE_flame,f_VALUE_soil_humidity,f_VALUE_sound
+
+            FROM dual;
+              -- dbms_output.put_line(f_IOT_SENSOR_ID||' -- '||f_DATE_OF_VALUE||' -- '||f_VALUE_air_temp||' -- '||f_VALUE_air_humidity||' -- '||f_VALUE_air_pressure||' -- '||f_VALUE_air_CO2||' -- '||f_VALUE_air_TVOC      ||' -- '||f_VALUE_lux||' -- '||f_VALUE_flame||' -- '||f_VALUE_soil_humidity||' -- '||f_VALUE_sound);
+            sensorValue := sensorsArray(f_VALUE_air_temp,f_VALUE_air_humidity,f_VALUE_air_pressure,f_VALUE_air_CO2,f_VALUE_air_TVOC,f_VALUE_soil_humidity,f_VALUE_lux,f_VALUE_flame,f_VALUE_sound); 
+            sensorName := sensorNameArray('air_temperature','air_humidity','air_pressure','air_CO2','air_TVOC','soil_humidity','lux','flame','sound'); 
+            total := sensorValue.count;
+
+
+             -- START LOOP INSERIR valores de cada JSON
+            FOR i IN 1..total LOOP
+                  BEGIN  
+                  --/* try 
+                            SELECT iot_sensor.ID INTO f_IOT_SENSOR_ID
+                                    FROM iot_sensor 
+                                    INNER JOIN iot_sensor_type
+                                    ON iot_sensor.iot_sensor_type_id = iot_sensor_type.id
+                                    WHERE iot_sensor_type_id=(select iot_sensor_type.id FROM iot_sensor_type WHERE name=sensorName(i))
+                                    AND iot_sensor.iot_node_id=(select iot_node.ID FROM iot_node WHERE iot_node.mac=f_IOT_NODE_MAC);
+
+                       INSERT INTO iot_sensor_data (iot_sensor_id, date_of_value, value) VALUES (f_IOT_SENSOR_ID ,f_DATE_OF_VALUE, sensorValue(i));
+                       --DBMS_OUTPUT.PUT_LINE('INSERIDO: '||i);
+
+                  EXCEPTION --/*catch 
+
+                  WHEN OTHERS THEN
+                      DBMS_OUTPUT.PUT_LINE('ERROR - Name: '||sensorName(i)||' - Value: '||sensorValue(i));
+                      INSERT INTO iot_log_table (date_fetch, error) VALUES (date_to_unix_ts(SYSDATE),'ERROR - Name: '||sensorName(i)||' - Value: '||sensorValue(i));
+
+                  END;
+            END LOOP;
+            /* --- LOG's*/
+            INSERT INTO iot_log_table (date_fetch, error) VALUES (date_to_unix_ts(SYSDATE),'none');
+            --DBMS_OUTPUT.PUT_LINE('INSERIDO: '||j||' JSON: '||v_json_query);
+
+
+--END LOOP;
+-- FIM PRIMEIRO LOOP dividir ARRAY de JSON   
+
+COMMIT;
+END GET_API_sensor_VALUES;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure HMAC_REQUEST_CHECK
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "HMAC_REQUEST_CHECK" AS
+
+     v_hmac_request bda.ws_authentication.hmac_request_type;
+     v_nonce          iot_person.nonce%TYPE;
+     v_key            iot_person.key%TYPE;
+     v_secret         iot_person.secret%TYPE;
+     v_pos            number(9);
+     v_api_sign       VARCHAR2(88);
+     v_user_ok        BOOLEAN := false;
+     v_binary_hash            RAW(2048);
+BEGIN
+    SELECT key, secret
+    INTO v_key, v_secret
+    FROM iot_person
+    WHERE iot_person.email = 'daniel@cenas.com';
+
+     v_hmac_request := bda.ws_authentication.hmac('persons','','',v_secret);
+
+     v_pos := instr(v_hmac_request.post_data,'=',-1)+1;
+     v_nonce := substr(v_hmac_request.post_data, v_pos);
+     v_api_sign := v_hmac_request.api_sign;
+
+    dbms_output.put_line('-------- POS, hmac_request,NONCE, API_SIGN-------');     
+    dbms_output.put_line(v_pos);
+    dbms_output.put_line(v_hmac_request.post_data);
+    dbms_output.put_line(v_nonce);
+    dbms_output.put_line(v_api_sign);   
+    dbms_output.put_line('---------------SECRET-------------------');     
+    dbms_output.put_line(v_secret);   
+    dbms_output.put_line(utl_raw.cast_to_raw(v_secret)); 
+    dbms_output.put_line(utl_encode.base64_decode(utl_raw.cast_to_raw(v_secret))); 
+    dbms_output.put_line('---------------KEY -------------------');     
+    dbms_output.put_line(v_key);   
+    dbms_output.put_line(v_key);   
+    dbms_output.put_line('--------------------------------------');     
+
+     v_user_ok := bda.ws_authentication.check_hmac('persons','','', v_nonce, v_key, v_api_sign, v_secret);
+     IF v_user_ok = true THEN
+            dbms_output.put_line('User OK');
+     ELSE
+            dbms_output.put_line('Wrong user credentials');
+     END IF;
+END HMAC_request_check;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure TEST_GET_API_SENSOR_VALUES
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "TEST_GET_API_SENSOR_VALUES" IS
+
+    /*Vers�o 2 com ARRAY JSON*/
+    totalArray INTEGER;
+
+    /*Vers�o 1 com JSON*/
+    /*JSON stuff*/   
+    v_json       CLOB;
+    v_json_query CLOB;
+    v_json_value CLOB;
+    /*Multiplos valores de sensores no mesmonode*/   
+    type sensorsArray IS VARRAY(9) OF NUMBER(6,2); 
+    type sensorNameArray IS VARRAY(9) OF VARCHAR2(20);
+    sensorValue sensorsArray;     
+    sensorName sensorNameArray; 
+    total INTEGER; 
+
+
+    /*MODEL: iot_sensor_data*/
+    f_IOT_NODE_MAC        VARCHAR2(20);  
+    f_IOT_SENSOR_ID       NUMBER(8);
+    f_DATE_OF_VALUE       NUMBER(16,0);
+
+    f_VALUE_air_temp      NUMBER(6,2);
+    f_VALUE_air_humidity  NUMBER(6,2);    
+    f_VALUE_air_pressure  NUMBER(6,2);
+    f_VALUE_air_CO2       NUMBER(6,2);    
+    f_VALUE_air_TVOC      NUMBER(6,2);
+    f_VALUE_lux           NUMBER(6,2);    
+    f_VALUE_flame         NUMBER(6,2);   
+    f_VALUE_soil_humidity NUMBER(6,2);    
+    f_VALUE_sound         NUMBER(6,2);
+
+    f_LONGITUDE     CLOB;    
+    f_LATITUDE      CLOB;
+
+
+
+BEGIN
+    v_json := bda.bda.return_web_page('http://my-json-server.typicode.com/daeynasvistas/SmartFarm/nodes');
+   -- dbms_output.put_line(v_json);
+
+
+-- START PRIMEIRO LOOP dividir ARRAY de JSON   
+--FOR j IN 0..3 LOOP
+
+     SELECT JSON_QUERY(v_json, '$['j']' 
+            WITH CONDITIONAL WRAPPER EMPTY ON ERROR ) AS value
+           --WITH CONDITIONAL WRAPPER) AS value
+      INTO v_json_query  FROM DUAL;
+
+ /*  ------------  TEST VERS�O 2 --ARRAY JSON ---------- */      
+  --  SELECT JSON_VALUE(v_json_query, '$.id')
+  --    INTO v_json_value
+  --    FROM DUAL;
+  --    dbms_output.put_line(v_json_value);
+           SELECT 
+                date_to_unix_ts(SYSDATE), --JSON_VALUE(v_json, '$.date_of_value'),
+                JSON_VALUE(v_json_query, '$.id'),
+                TO_NUMBER(JSON_VALUE(v_json_query, '$.air_temp'), '999.99'),
+                TO_NUMBER(JSON_VALUE(v_json_query, '$.air_humidity'), '999.99'),
+                TO_NUMBER(JSON_VALUE(v_json_query, '$.air_pressure'), '9999'),
+                TO_NUMBER(JSON_VALUE(v_json_query, '$.air_CO2'), '9999'),
+                TO_NUMBER(JSON_VALUE(v_json_query, '$.air_TVOC'), '9999'),
+                TO_NUMBER(JSON_VALUE(v_json_query, '$.lux'), '9999'),
+                TO_NUMBER(JSON_VALUE(v_json_query, '$.flame'), '9999'),
+                TO_NUMBER(JSON_VALUE(v_json_query, '$.soil_humidity'), '9999'),
+                TO_NUMBER(JSON_VALUE(v_json_query, '$.sound'), '9999')
+            INTO 
+                f_DATE_OF_VALUE,
+                f_IOT_NODE_MAC,
+                f_VALUE_air_temp,f_VALUE_air_humidity,f_VALUE_air_pressure,f_VALUE_air_CO2,f_VALUE_air_TVOC,f_VALUE_lux,f_VALUE_flame,f_VALUE_soil_humidity,f_VALUE_sound
+
+            FROM dual;
+              -- dbms_output.put_line(f_IOT_SENSOR_ID||' -- '||f_DATE_OF_VALUE||' -- '||f_VALUE_air_temp||' -- '||f_VALUE_air_humidity||' -- '||f_VALUE_air_pressure||' -- '||f_VALUE_air_CO2||' -- '||f_VALUE_air_TVOC      ||' -- '||f_VALUE_lux||' -- '||f_VALUE_flame||' -- '||f_VALUE_soil_humidity||' -- '||f_VALUE_sound);
+            sensorValue := sensorsArray(f_VALUE_air_temp,f_VALUE_air_humidity,f_VALUE_air_pressure,f_VALUE_air_CO2,f_VALUE_air_TVOC,f_VALUE_soil_humidity,f_VALUE_lux,f_VALUE_flame,f_VALUE_sound); 
+            sensorName := sensorNameArray('air_temperature','air_humidity','air_pressure','air_CO2','air_TVOC','soil_humidity','lux','flame','sound'); 
+            total := sensorValue.count;
+
+
+             -- START LOOP INSERIR valores de cada JSON
+            FOR i IN 1..total LOOP
+                  BEGIN  
+                  --/* try 
+                            SELECT iot_sensor.ID INTO f_IOT_SENSOR_ID
+                                    FROM iot_sensor 
+                                    INNER JOIN iot_sensor_type
+                                    ON iot_sensor.iot_sensor_type_id = iot_sensor_type.id
+                                    WHERE iot_sensor_type_id=(select iot_sensor_type.id FROM iot_sensor_type WHERE name=sensorName(i))
+                                    AND iot_sensor.iot_node_id=(select iot_node.ID FROM iot_node WHERE iot_node.mac=f_IOT_NODE_MAC);
+
+                       INSERT INTO iot_sensor_data (iot_sensor_id, date_of_value, value) VALUES (f_IOT_SENSOR_ID ,f_DATE_OF_VALUE, sensorValue(i));
+                       --DBMS_OUTPUT.PUT_LINE('INSERIDO: '||i);
+
+                  EXCEPTION --/*catch 
+
+                  WHEN OTHERS THEN
+                      DBMS_OUTPUT.PUT_LINE('ERROR - Name: '||sensorName(i)||' - Value: '||sensorValue(i));
+                      INSERT INTO iot_log_table (date_fetch, error) VALUES (date_to_unix_ts(SYSDATE),'ERROR - Name: '||sensorName(i)||' - Value: '||sensorValue(i));
+
+                  END;
+            END LOOP;
+            /* --- LOG's*/
+            INSERT INTO iot_log_table (date_fetch, error) VALUES (date_to_unix_ts(SYSDATE),'none');
+            DBMS_OUTPUT.PUT_LINE('INSERIDO: '||j||' JSON: '||v_json_query);
+
+
+--END LOOP;
+-- FIM PRIMEIRO LOOP dividir ARRAY de JSON   
+
+COMMIT;
+END TEST_GET_API_sensor_VALUES;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure TEST_2_GET_API_SENSOR_VALUES
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "TEST_2_GET_API_SENSOR_VALUES" IS
+
+    /*Vers�o 2 com ARRAY JSON*/
+    totalArray INTEGER;
+
+    /*Vers�o 1 com JSON*/
+    /*JSON stuff*/   
+    v_json       CLOB;
+    v_json_query CLOB;
+    v_json_value CLOB;
+    /*Multiplos valores de sensores no mesmonode*/   
+    type sensorsArray IS VARRAY(9) OF NUMBER(6,2); 
+    type sensorNameArray IS VARRAY(9) OF VARCHAR2(20);
+    sensorValue sensorsArray;     
+    sensorName sensorNameArray; 
+    total INTEGER; 
+
+
+    /*MODEL: iot_sensor_data*/
+    f_IOT_NODE_MAC        VARCHAR2(20);  
+    f_IOT_SENSOR_ID       NUMBER(8);
+    f_DATE_OF_VALUE       NUMBER(16,0);
+
+    f_VALUE_air_temp      NUMBER(6,2);
+    f_VALUE_air_humidity  NUMBER(6,2);    
+    f_VALUE_air_pressure  NUMBER(6,2);
+    f_VALUE_air_CO2       NUMBER(6,2);    
+    f_VALUE_air_TVOC      NUMBER(6,2);
+    f_VALUE_lux           NUMBER(6,2);    
+    f_VALUE_flame         NUMBER(6,2);   
+    f_VALUE_soil_humidity NUMBER(6,2);    
+    f_VALUE_sound         NUMBER(6,2);
+
+    f_LONGITUDE     CLOB;    
+    f_LATITUDE      CLOB;
+
+
+
+BEGIN
+    v_json := bda.bda.return_web_page('http://my-json-server.typicode.com/daeynasvistas/SmartFarm/nodes');
+   -- dbms_output.put_line(v_json);
+
+ /*  ------------  TEST VERS�O 2 --ARRAY JSON ---------- */
+
+    SELECT JSON_QUERY(v_json, '$[0]' 
+            EMPTY ON ERROR) AS value
+           --WITH CONDITIONAL WRAPPER) AS value
+      INTO v_json_query
+      FROM DUAL;
+      dbms_output.put_line(v_json_query);
+
+  --  SELECT JSON_VALUE(v_json_query, '$.id')
+  --    INTO v_json_value
+  --    FROM DUAL;
+  --    dbms_output.put_line(v_json_value);
+
+ /*  ------------  TEST VERS�O 2 --ARRAY JSON ---------- */
+
+
+
+   SELECT 
+        date_to_unix_ts(SYSDATE), --JSON_VALUE(v_json, '$.date_of_value'),
+        JSON_VALUE(v_json_query, '$.id'),
+        TO_NUMBER(JSON_VALUE(v_json_query, '$.air_temp'), '999.99'),
+        TO_NUMBER(JSON_VALUE(v_json_query, '$.air_humidity'), '999.99'),
+        TO_NUMBER(JSON_VALUE(v_json_query, '$.air_pressure'), '9999'),
+        TO_NUMBER(JSON_VALUE(v_json_query, '$.air_CO2'), '9999'),
+        TO_NUMBER(JSON_VALUE(v_json_query, '$.air_TVOC'), '9999'),
+        TO_NUMBER(JSON_VALUE(v_json_query, '$.lux'), '9999'),
+        TO_NUMBER(JSON_VALUE(v_json_query, '$.flame'), '9999'),
+        TO_NUMBER(JSON_VALUE(v_json_query, '$.soil_humidity'), '9999'),
+        TO_NUMBER(JSON_VALUE(v_json_query, '$.sound'), '9999')
+    INTO 
+        f_DATE_OF_VALUE,
+        f_IOT_NODE_MAC,
+        f_VALUE_air_temp,f_VALUE_air_humidity,f_VALUE_air_pressure,f_VALUE_air_CO2,f_VALUE_air_TVOC,f_VALUE_lux,f_VALUE_flame,f_VALUE_soil_humidity,f_VALUE_sound
+
+    FROM dual;
+      -- dbms_output.put_line(f_IOT_SENSOR_ID||' -- '||f_DATE_OF_VALUE||' -- '||f_VALUE_air_temp||' -- '||f_VALUE_air_humidity||' -- '||f_VALUE_air_pressure||' -- '||f_VALUE_air_CO2||' -- '||f_VALUE_air_TVOC      ||' -- '||f_VALUE_lux||' -- '||f_VALUE_flame||' -- '||f_VALUE_soil_humidity||' -- '||f_VALUE_sound);
+    sensorValue := sensorsArray(f_VALUE_air_temp,f_VALUE_air_humidity,f_VALUE_air_pressure,f_VALUE_air_CO2,f_VALUE_air_TVOC,f_VALUE_soil_humidity,f_VALUE_lux,f_VALUE_flame,f_VALUE_sound); 
+    sensorName := sensorNameArray('air_temperature','air_humidity','air_pressure','air_CO2','air_TVOC','soil_humidity','lux','flame','sound'); 
+    total := sensorValue.count;
+
+
+
+    FOR i IN 1..total LOOP
+          BEGIN  
+          --/* try 
+                    SELECT iot_sensor.ID INTO f_IOT_SENSOR_ID
+                            FROM iot_sensor 
+                            INNER JOIN iot_sensor_type
+                            ON iot_sensor.iot_sensor_type_id = iot_sensor_type.id
+                            WHERE iot_sensor_type_id=(select iot_sensor_type.id FROM iot_sensor_type WHERE name=sensorName(i))
+                            AND iot_sensor.iot_node_id=(select iot_node.ID FROM iot_node WHERE iot_node.mac=f_IOT_NODE_MAC);
+
+               INSERT INTO iot_sensor_data (iot_sensor_id, date_of_value, value) VALUES (f_IOT_SENSOR_ID ,f_DATE_OF_VALUE, sensorValue(i));
+
+          EXCEPTION --/*catch 
+
+          WHEN OTHERS THEN
+              DBMS_OUTPUT.PUT_LINE('ERROR - Name: '||sensorName(i)||' - Value: '||sensorValue(i));
+              INSERT INTO iot_log_table (date_fetch, error) VALUES (date_to_unix_ts(SYSDATE),'ERROR - Name: '||sensorName(i)||' - Value: '||sensorValue(i));
+
+          END;
+    END LOOP;
+
+
+
+
+/* --- LOG's*/
+INSERT INTO iot_log_table (date_fetch, error) VALUES (date_to_unix_ts(SYSDATE),'none');
+COMMIT;
+
+
+END TEST_2_GET_API_sensor_VALUES;
+
+/
+--------------------------------------------------------
+--  DDL for Package TEST_WS_AUTHENTICATION
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE PACKAGE "TEST_WS_AUTHENTICATION" IS
+    PROCEDURE basic;
+
+    PROCEDURE from_base64;
+
+END test_ws_authentication;
+
+/
+--------------------------------------------------------
+--  DDL for Function CREATE_NONCE
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE FUNCTION "CREATE_NONCE" 
+    RETURN NUMBER IS
+        v_nonce iot_person.nonce%TYPE;
+        v_systimestamp TIMESTAMP;
+    BEGIN
+
+        v_systimestamp := systimestamp;
+        v_nonce := trunc((CAST(v_systimestamp AS DATE) - TO_DATE('01/01/1970', 'dd/mm/yyyy')) * 86400000000) + to_number(substr(TO_CHAR(v_systimestamp, 'ffff'), 1, 6));
+
+        RETURN v_nonce;
+    END create_nonce;
+
+/
+--------------------------------------------------------
+--  DDL for Function CREATE_USER
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE FUNCTION "CREATE_USER" (
         v_username VARCHAR2
     ) RETURN NUMBER IS
         v_id users.id%TYPE;
@@ -304,214 +1031,287 @@ CREATE OR REPLACE  FUNCTION create_user (
 
         RETURN v_id;
     END create_user;
-    /
 
-
-
-
-
-/*----------------------  END ---------------------------------- */
-        
-/* DUMMY DATA
-/*add PERSON*/
-/* Já não funciona com HMAC */
----INSERT INTO iot_person (email, password) VALUES ('daniel@ept.pt','123456789'); --Versão 0.4 (REMOVIDO em 0.7)
-
-
-/*add IOT_TYPE*  desc iot_sensor_type;*/
-/*
-air_temp
-air_humidity
-air_pressure
-air_CO2
-air_TVOC
-lux
-flame
-soil_humidity
-sound
-*/
-
-INSERT INTO iot_sensor_type (name, unit, description) VALUES ('air_temperature','C','Temperatura ambiente');        
-INSERT INTO iot_sensor_type (name, unit, description) VALUES ('air_humidity','%','Humidade ambiente');   
-INSERT INTO iot_sensor_type (name, unit, description) VALUES ('air_pressure','atm','Pressão atmosférica');   
-INSERT INTO iot_sensor_type (name, unit, description) VALUES ('air_CO2','ppm','Concentração Dióxido de Carbono');   
-INSERT INTO iot_sensor_type (name, unit, description) VALUES ('air_TVOC','mg/m3','Compostos Orgânicos Voláteis');   
-INSERT INTO iot_sensor_type (name, unit, description) VALUES ('soil_humidity','%','Humidade do solo');   
-INSERT INTO iot_sensor_type (name, unit, description) VALUES ('lux','Lux','Luminosidade');   
-INSERT INTO iot_sensor_type (name, unit, description) VALUES ('flame','UV','Deteção de chama');   
-INSERT INTO iot_sensor_type (name, unit, description) VALUES ('sound','dB','Som Ambiente');   
-
-
-
-/*add NODE*/
-INSERT INTO iot_node (IOT_PERSON_ID, MODEL, FIRM_VERS, MAC, IP, LATITUDE, LONGITUDE, ALTITUDE) VALUES (1, 'ESP32 Lora', '0.1','1A0000000','192.000.000.000',40.777083,-7.354986,1090);
-
-
-
-
-/*add SENSOR*/
-INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
-                VALUES ('BME280',  'Digital Sensor', 'Temperature, Humidity, Atmospheric Pressure', date_to_unix_ts(SYSDATE),NULL, 1000, 1000);
-INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
-                VALUES ('BME280',  'Digital Sensor', 'Temperature, Humidity, Atmospheric Pressure', date_to_unix_ts(SYSDATE),NULL, 1001, 1000);
-INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
-                VALUES ('BME280',  'Digital Sensor', 'Temperature, Humidity, Atmospheric Pressure', date_to_unix_ts(SYSDATE),NULL, 1002, 1000);
-
-INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
-                VALUES ('CCS811',  'Air Mass Sensor', 'NTC CO2 eCO2 TVOC Air Mass Sensor', date_to_unix_ts(SYSDATE),NULL, 1003, 1000);
-INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
-                VALUES ('CCS811',  'Air Mass Sensor', 'NTC CO2 eCO2 TVOC Air Mass Sensor', date_to_unix_ts(SYSDATE),NULL, 1004, 1000);
-                                                            
-INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
-                VALUES ('YL-38',  'Soil Hygrometer', 'Detection Module Moisture Sensor', date_to_unix_ts(SYSDATE),NULL, 1005, 1000);
-    
-INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
-                VALUES ('GL5528',  'Photosensitive', 'detect the light intensity', date_to_unix_ts(SYSDATE),NULL, 1006, 1000);
-    
-INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
-                VALUES ('LM393',  'UV Detector', 'detect flame', date_to_unix_ts(SYSDATE),NULL, 1007, 1000);
-    
-INSERT INTO iot_sensor (CODE, NAME, DESCRIPTION, DATE_INSTALLED, DATE_TERMINATE, IOT_SENSOR_TYPE_ID,IOT_NODE_ID) 
-                VALUES ('OKY3131',  'Sound Detection', 'High Sensitive Microphone', date_to_unix_ts(sysdate),NULL, 1008, 1000);
-
-    
-
-
-/*
-select * from iot_person;  
-select * from iot_sensor_type;  
-select * from iot_node;
-select * from iot_sensor;
-desc iot_sensor;
-
-
-*/        
-  
-
-/*
-
-PROCEDIMENTOS Vers 0.4
-
-*/
-
-/*--------------------------------------------------------------------------*/
-/*---------------RECEBER VALORES DE UM SENSOR ESP32 -----------------------*/
-/*--------------------------------------------------------------------------*/
-CREATE OR REPLACE PROCEDURE GET_API_sensor_VALUES IS
-
-    /*Versão 2 com ARRAY JSON*/
-    totalArray INTEGER;
-
-    /*Versão 1 com JSON*/
-    /*JSON stuff*/   
-    v_json       CLOB;
-    v_json_query CLOB;
-    v_json_value CLOB;
-    /*Multiplos valores de sensores no mesmonode*/   
-    type sensorsArray IS VARRAY(9) OF NUMBER(6,2); 
-    type sensorNameArray IS VARRAY(9) OF VARCHAR2(20);
-    sensorValue sensorsArray;     
-    sensorName sensorNameArray; 
-    total INTEGER; 
-    
-  
-    /*MODEL: iot_sensor_data*/
-    f_IOT_NODE_MAC        VARCHAR2(20);  
-    f_IOT_SENSOR_ID       NUMBER(8);
-    f_DATE_OF_VALUE       NUMBER(16,0);
-    
-    f_VALUE_air_temp      NUMBER(6,2);
-    f_VALUE_air_humidity  NUMBER(6,2);    
-    f_VALUE_air_pressure  NUMBER(6,2);
-    f_VALUE_air_CO2       NUMBER(6,2);    
-    f_VALUE_air_TVOC      NUMBER(6,2);
-    f_VALUE_lux           NUMBER(6,2);    
-    f_VALUE_flame         NUMBER(6,2);   
-    f_VALUE_soil_humidity NUMBER(6,2);    
-    f_VALUE_sound         NUMBER(6,2);
-    
-    f_LONGITUDE     CLOB;    
-    f_LATITUDE      CLOB;
-    
-  
-
-BEGIN
-    v_json := bda.bda.return_web_page('http://my-json-server.typicode.com/daeynasvistas/SmartFarm/nodes');
-   -- dbms_output.put_line(v_json);
-   
- /*  ------------  TEST VERSÃO 2 --ARRAY JSON ---------- */
-     SELECT JSON_QUERY(v_json, '$[0]' 
-            EMPTY ON ERROR) AS value
-           --WITH CONDITIONAL WRAPPER) AS value
-      INTO v_json_query
-      FROM DUAL;
-      dbms_output.put_line(v_json_query);
-      
-  --  SELECT JSON_VALUE(v_json_query, '$.id')
-  --    INTO v_json_value
-  --    FROM DUAL;
-  --    dbms_output.put_line(v_json_value);
- /*  ------------  TEST VERSÃO 2 --ARRAY JSON ---------- */
-
-   
-  
-   SELECT 
-        date_to_unix_ts(SYSDATE), --JSON_VALUE(v_json, '$.date_of_value'),
-        JSON_VALUE(v_json_query, '$.id'),
-        TO_NUMBER(JSON_VALUE(v_json_query, '$.air_temp'), '999.99'),
-        TO_NUMBER(JSON_VALUE(v_json_query, '$.air_humidity'), '999.99'),
-        TO_NUMBER(JSON_VALUE(v_json_query, '$.air_pressure'), '9999'),
-        TO_NUMBER(JSON_VALUE(v_json_query, '$.air_CO2'), '9999'),
-        TO_NUMBER(JSON_VALUE(v_json_query, '$.air_TVOC'), '9999'),
-        TO_NUMBER(JSON_VALUE(v_json_query, '$.lux'), '9999'),
-        TO_NUMBER(JSON_VALUE(v_json_query, '$.flame'), '9999'),
-        TO_NUMBER(JSON_VALUE(v_json_query, '$.soil_humidity'), '9999'),
-        TO_NUMBER(JSON_VALUE(v_json_query, '$.sound'), '9999')
-    INTO 
-        f_DATE_OF_VALUE,
-        f_IOT_NODE_MAC,
-        f_VALUE_air_temp,f_VALUE_air_humidity,f_VALUE_air_pressure,f_VALUE_air_CO2,f_VALUE_air_TVOC,f_VALUE_lux,f_VALUE_flame,f_VALUE_soil_humidity,f_VALUE_sound
- 
-    FROM dual;
-      -- dbms_output.put_line(f_IOT_SENSOR_ID||' -- '||f_DATE_OF_VALUE||' -- '||f_VALUE_air_temp||' -- '||f_VALUE_air_humidity||' -- '||f_VALUE_air_pressure||' -- '||f_VALUE_air_CO2||' -- '||f_VALUE_air_TVOC      ||' -- '||f_VALUE_lux||' -- '||f_VALUE_flame||' -- '||f_VALUE_soil_humidity||' -- '||f_VALUE_sound);
-    sensorValue := sensorsArray(f_VALUE_air_temp,f_VALUE_air_humidity,f_VALUE_air_pressure,f_VALUE_air_CO2,f_VALUE_air_TVOC,f_VALUE_soil_humidity,f_VALUE_lux,f_VALUE_flame,f_VALUE_sound); 
-    sensorName := sensorNameArray('air_temperature','air_humidity','air_pressure','air_CO2','air_TVOC','soil_humidity','lux','flame','sound'); 
-    total := sensorValue.count;
-
-
-
-    FOR i IN 1..total LOOP
-          BEGIN  
-          --/* try 
-                    SELECT iot_sensor.ID INTO f_IOT_SENSOR_ID
-                            FROM iot_sensor 
-                            INNER JOIN iot_sensor_type
-                            ON iot_sensor.iot_sensor_type_id = iot_sensor_type.id
-                            WHERE iot_sensor_type_id=(select iot_sensor_type.id FROM iot_sensor_type WHERE name=sensorName(i))
-                            AND iot_sensor.iot_node_id=(select iot_node.ID FROM iot_node WHERE iot_node.mac=f_IOT_NODE_MAC);
-                            
-               INSERT INTO iot_sensor_data (iot_sensor_id, date_of_value, value) VALUES (f_IOT_SENSOR_ID ,f_DATE_OF_VALUE, sensorValue(i));
-               
-          EXCEPTION --/*catch 
-
-          WHEN OTHERS THEN
-              DBMS_OUTPUT.PUT_LINE('ERROR - Name: '||sensorName(i)||' - Value: '||sensorValue(i));
-              INSERT INTO iot_log_table (date_fetch, error) VALUES (date_to_unix_ts(SYSDATE),'ERROR - Name: '||sensorName(i)||' - Value: '||sensorValue(i));
-
-          END;
-    END LOOP;
-    
-    
-    
-
-/* --- LOG's*/
-INSERT INTO iot_log_table (date_fetch, error) VALUES (date_to_unix_ts(SYSDATE),'none');
-COMMIT;
-
-
-END GET_API_sensor_VALUES;
 /
+--------------------------------------------------------
+--  DDL for Function DATE_TO_UNIX_TS
+--------------------------------------------------------
 
+  CREATE OR REPLACE EDITIONABLE FUNCTION "DATE_TO_UNIX_TS" ( PDate in date ) return number is
+   l_unix_ts number;
+begin
+   l_unix_ts := ROUND(( PDate - TO_DATE('01.01.1970','dd.mm.yyyy')) * 60 * 60 * 24);
+   return l_unix_ts;
+end;
+
+/
+--------------------------------------------------------
+--  DDL for Function IOT_HMAC
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE FUNCTION "IOT_HMAC" (
+        v_username VARCHAR2,
+        v_root VARCHAR2,
+        v_id VARCHAR2,
+        v_data VARCHAR2
+                
+    ) RETURN string AS
+    
+        v_hmac_request bda.ws_authentication.hmac_request_type;
+        v_key            iot_person.key%TYPE;
+        v_secret         iot_person.secret%TYPE;
+
+    BEGIN
+        SELECT key, secret
+        INTO v_key, v_secret
+        FROM iot_person
+        WHERE iot_person.email = v_username;
+
+        v_hmac_request := bda.ws_authentication.hmac(v_root, v_id, v_data, v_secret);
+
+        RETURN '------';
+    END IOT_hmac;
+
+/
+--------------------------------------------------------
+--  DDL for Function REQUEST_CHECK
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE FUNCTION "REQUEST_CHECK" (
+        v_username VARCHAR2
+    ) RETURN BOOLEAN IS
+
+     v_hmac_request bda.ws_authentication.hmac_request_type;
+     v_nonce          iot_person.nonce%TYPE;
+     v_key            iot_person.key%TYPE;
+     v_secret         iot_person.secret%TYPE;
+     v_pos            number(9);
+     v_api_sign       VARCHAR2(88);
+     v_user_ok        BOOLEAN := false;
+BEGIN
+
+
+
+    SELECT key, secret
+    INTO v_key, v_secret
+    FROM iot_person
+    WHERE iot_person.email = 'daniel@cenas.com';
+
+     v_hmac_request := bda.ws_authentication.hmac('daniel@cenas.com','nodes','1015',v_secret);
+
+     v_pos := instr(v_hmac_request.post_data,'=',-1)+1;
+     v_nonce := substr(v_hmac_request.post_data, v_pos);
+     v_api_sign := v_hmac_request.api_sign;
+
+   -- dbms_output.put_line('---------------------------------------');     
+   -- dbms_output.put_line(v_nonce);
+   -- dbms_output.put_line(v_key);   
+   -- dbms_output.put_line(v_api_sign);   
+
+   -- dbms_output.put_line('---------------------------------------');     
+
+        v_user_ok := bda.ws_authentication.check_hmac('daniel@cenas.com','nodes','1015', v_nonce, v_key, v_api_sign, v_secret);
+
+        IF v_user_ok = true THEN
+            dbms_output.put_line('User OK');
+        ELSE
+            dbms_output.put_line('Wrong user credentials');
+        END IF;
+END request_check;
+
+/
+--------------------------------------------------------
+--  DDL for Function TEST_HMAC
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE FUNCTION "TEST_HMAC" (
+        v_path VARCHAR2,
+        v_nonce VARCHAR2,
+        v_api_key VARCHAR2,
+        v_api_sign VARCHAR2
+                
+    ) RETURN integer IS
+    
+    v_user_ok   BOOLEAN := false;
+    v_secret    iot_person.secret%TYPE;
+    v_email     iot_person.email%TYPE;
+    v_key       iot_person.key%TYPE;
+    n_nonce     iot_person.nonce%type;
+
+    BEGIN
+
+  --- Vers 0.1
+    SELECT key, secret, email
+    INTO v_key, v_secret, v_email
+    FROM iot_person
+    WHERE iot_person.key = v_api_key;
+
+        v_user_ok := bda.ws_authentication.check_hmac(v_path,'','', v_nonce , v_api_key, v_api_sign, v_secret);
+       
+        if(v_user_ok=true) then 
+             return 1;
+        else return 0;
+        end if;
+    END test_hmac;
+
+/
+--------------------------------------------------------
+--  DDL for Function UPDATE_NONCE
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE FUNCTION "UPDATE_NONCE" (v_key VARCHAR2,  v_nonce iot_person.nonce%TYPE )
+    RETURN NUMBER IS
+        v_systimestamp TIMESTAMP;
+    BEGIN
+
+       -- N�O h� esse detalhe no android em java -- guardar o nonce que vem do android
+       -- v_systimestamp := systimestamp;
+       -- v_nonce := trunc((CAST(v_systimestamp AS DATE) - TO_DATE('01/01/1970', 'dd/mm/yyyy')) * 86400000000) + to_number(substr(TO_CHAR(v_systimestamp, 'ffff'), 1, 6));
+
+        ---//-------------------------------------------------------------------
+          UPDATE iot_person SET iot_person.nonce = v_nonce
+          WHERE iot_person.key = v_key;
+        --//---------------------------------------------------------------------
+
+        RETURN v_nonce;
+    END update_nonce;
+
+/
+--------------------------------------------------------
+--  Constraints for Table IOT_NODE
+--------------------------------------------------------
+
+  ALTER TABLE "IOT_NODE" ADD CONSTRAINT "IOT_NODE_PK" PRIMARY KEY ("ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "IOT_NODE" MODIFY ("IOT_PERSON_ID" NOT NULL ENABLE);
+  ALTER TABLE "IOT_NODE" MODIFY ("ID" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table ARTIGOS
+--------------------------------------------------------
+
+  ALTER TABLE "ARTIGOS" ADD UNIQUE ("NOME")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "ARTIGOS" ADD CONSTRAINT "ARTIGO_PK" PRIMARY KEY ("ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "ARTIGOS" MODIFY ("PRECO" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table IOT_SENSOR_ALERT
+--------------------------------------------------------
+
+  ALTER TABLE "IOT_SENSOR_ALERT" ADD CONSTRAINT "IOT_SENSOR_ALERT_PK" PRIMARY KEY ("ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "IOT_SENSOR_ALERT" MODIFY ("IOT_SENSOR_ID" NOT NULL ENABLE);
+  ALTER TABLE "IOT_SENSOR_ALERT" MODIFY ("ID" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table IOT_SENSOR
+--------------------------------------------------------
+
+  ALTER TABLE "IOT_SENSOR" ADD CONSTRAINT "IOT_SENSOR_PK" PRIMARY KEY ("ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "IOT_SENSOR" MODIFY ("IOT_NODE_ID" NOT NULL ENABLE);
+  ALTER TABLE "IOT_SENSOR" MODIFY ("IOT_SENSOR_TYPE_ID" NOT NULL ENABLE);
+  ALTER TABLE "IOT_SENSOR" MODIFY ("ID" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table IOT_SENSOR_TYPE
+--------------------------------------------------------
+
+  ALTER TABLE "IOT_SENSOR_TYPE" ADD CONSTRAINT "IOT_SENSOR_TYPE_PK" PRIMARY KEY ("ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "IOT_SENSOR_TYPE" MODIFY ("ID" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table IOT_SENSOR_DATA
+--------------------------------------------------------
+
+  ALTER TABLE "IOT_SENSOR_DATA" ADD CONSTRAINT "IOT_SENSOR_DATA_PK" PRIMARY KEY ("ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "IOT_SENSOR_DATA" MODIFY ("IOT_SENSOR_ID" NOT NULL ENABLE);
+  ALTER TABLE "IOT_SENSOR_DATA" MODIFY ("ID" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table IOT_PERSON
+--------------------------------------------------------
+
+  ALTER TABLE "IOT_PERSON" ADD CONSTRAINT "IOT_PERSON_KEY" UNIQUE ("KEY")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "IOT_PERSON" ADD CONSTRAINT "IOT_PERSON_PK" PRIMARY KEY ("ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "IOT_PERSON" ADD CONSTRAINT "IOT_PERSON_EMAIL" UNIQUE ("EMAIL")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "IOT_PERSON" MODIFY ("EMAIL" NOT NULL ENABLE);
+  ALTER TABLE "IOT_PERSON" MODIFY ("ID" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table IOT_LOG_TABLE
+--------------------------------------------------------
+
+  ALTER TABLE "IOT_LOG_TABLE" ADD CONSTRAINT "IOT_LOG_TABLE_PK" PRIMARY KEY ("ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "IOT_LOG_TABLE" MODIFY ("ID" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Ref Constraints for Table IOT_NODE
+--------------------------------------------------------
+
+  ALTER TABLE "IOT_NODE" ADD CONSTRAINT "IOT_NODE_IOT_PERSON_FK" FOREIGN KEY ("IOT_PERSON_ID")
+	  REFERENCES "IOT_PERSON" ("ID") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table IOT_SENSOR
+--------------------------------------------------------
+
+  ALTER TABLE "IOT_SENSOR" ADD CONSTRAINT "IOT_SENSOR_IOT_NODE_FK" FOREIGN KEY ("IOT_NODE_ID")
+	  REFERENCES "IOT_NODE" ("ID") ENABLE;
+  ALTER TABLE "IOT_SENSOR" ADD CONSTRAINT "IOT_SENSOR_IOT_SENSOR_TYPE_FK" FOREIGN KEY ("IOT_SENSOR_TYPE_ID")
+	  REFERENCES "IOT_SENSOR_TYPE" ("ID") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table IOT_SENSOR_ALERT
+--------------------------------------------------------
+
+  ALTER TABLE "IOT_SENSOR_ALERT" ADD CONSTRAINT "IOT_SENSOR_ALERT_IOT_SENSOR_FK" FOREIGN KEY ("IOT_SENSOR_ID")
+	  REFERENCES "IOT_SENSOR" ("ID") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table IOT_SENSOR_DATA
+--------------------------------------------------------
+
+  ALTER TABLE "IOT_SENSOR_DATA" ADD CONSTRAINT "IOT_SENSOR_DATA_IOT_SENSOR_FK" FOREIGN KEY ("IOT_SENSOR_ID")
+	  REFERENCES "IOT_SENSOR" ("ID") ENABLE;
 
 
 
